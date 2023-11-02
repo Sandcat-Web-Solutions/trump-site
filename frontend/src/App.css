@@ -1,11 +1,84 @@
+html, body {
+ 
+  background-color: black;
+}
+#HomepageRow{
+    background-image: url("./Images/TrumpHomePage.jpg");
+    background-size: contain; 
+    background-color: black;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 10%;
+}
+
+#HomepageTitle{
+  font-size: 100px;
+  color: #c22822;
+
+}
+
+.HomepageText{
+  color: #fbefef;
+  text-align: center;
+}
+
+
+
+#HomepageSvg{
+  margin-left: -5%;
+  margin-right: -12px;
+  overflow: hidden;
+  background-color:rgb(233, 229, 222); ;
+  
+}
+
+.HomepageArticlesRow{
+  padding: 3% 5% 3% 5%;
+  background-color: rgb(233, 229, 222);
+}
+
+.HomepageArticleImageCol{
+  display: flex;
+  justify-content: center;
+}
+
+#HomepageAuthors{
+  text-shadow: #bc2f2f;
+}
+
+
 .sticky-md {
   position: sticky;
   top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+.sticky-md a{
+  margin: 5%;
+  color: inherit;
+}
+
+
+.article-content{
+  padding: 5%;
+  text-align: justify;
+}
+
 
 
 @media (max-width: 767px) {
   .sticky-md {
-    position: relative; 
+    position: relative;
+    flex-direction: column; 
+    align-items: center;
+  }
+  .sticky-md img {
+    order: -1;
   }
 }

@@ -8,9 +8,9 @@ function Article() {
                 <Col className="col-12 col-md-9">
                     <div>
                         <h1>Lorem ipsum dolor sit amet</h1>
-                        <hr />
+                        <hr/>
 
-                        <h4 >Lorem ipsum dolor sit amet,
+                        <h4 className="article-content">Lorem ipsum dolor sit amet,
                             consetetur sadipscing elitr,
                             sed diam nonumy eirmod tempor
                             invidunt ut labore et dolore maagna
@@ -91,21 +91,22 @@ function Article() {
                     </div>
                 </Col>
                 <Col className="col-12 col-md-3">
-                <div className="sticky-md">
-                    <img src={cat}></img>
-                    Lorem ipsum dolor sit amet,
-                    consetetur sadipscing elitr,
-                    sed diam nonumy eirmod tempor
-                    invidunt ut labore et dolore magna
-                    aliquyam erat, sed diam voluptua.
-                    At vero eos et accusam et justo duo dolores et ea rebum.
-                    Stet clita kasd gubergren, no sea takimata sanctus est
-                    Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-                    consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-                    invidunt ut labore et dolore magna aliquyam erat, sed
-                    diam voluptua. At vero eos et accusam et justo duo dolores
-                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus
-                    est Lorem ipsum dolor sit amet.
+                    <div className="sticky-md">
+                        <img src={cat}></img>
+                                          
+                            <h4>written by John</h4>
+                            <a href="https://http.cat">this is a link to a cat</a>
+                            
+                            <a href="https://http.cat">this is a link to a cat</a>
+                            
+                            <a href="https://http.cat">this is a link to a cat</a>
+                            
+                            <a href="https://http.cat">this is a link to a cat</a>
+                            
+                            <a href="https://http.cat">this is a link to a cat</a>
+                            
+                            <a href="https://http.cat">this is a link to a cat</a>
+                                                    
                     </div>
                 </Col>
             </Row>
