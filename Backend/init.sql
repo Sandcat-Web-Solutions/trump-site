@@ -36,3 +36,6 @@ CREATE TABLE IF NOT EXISTS `comment`
     CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`fk_user_id`) REFERENCES `user` (`id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
+
+INSERT INTO `user` (`username`, `password`, `created_at`)
+VALUES ('gato', 'gato', '2018-01-01 00:00:00');
