@@ -9,6 +9,14 @@ namespace Backend.Controllers {
   [Route("api/[controller]")]
   [ApiController]
   public class ArticleController : ControllerBase {
+    // GET: api/articles
+    [Route("/api/Articles")]
+    [HttpGet]
+    public IActionResult GetAll() {
+      return Ok("Hello World, All Articles");
+    }
+
+
     // GET: api/article
     [HttpGet]
     public IActionResult Get() {
