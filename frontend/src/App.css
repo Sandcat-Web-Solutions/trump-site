@@ -1,52 +1,58 @@
-html, body {
- 
+html,
+body {
   background-color: black;
 }
-#HomepageRow{
-    background-image: url("./Images/TrumpHomePage.jpg");
-    background-size: contain; 
-    background-color: black;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    padding-bottom: 10%;
+
+#HomepageRow {
+  background-image: url("./Images/TrumpHomePage.jpg");
+  background-size: contain;
+  background-color: black;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 10%;
 }
 
-#HomepageTitle{
+#HomepageTitle {
   font-size: 100px;
   color: #c22822;
 
 }
 
-.HomepageText{
+.HomepageText {
   color: #fbefef;
   text-align: center;
 }
 
+#HomepageAuthors {
+  color: white;
+}
 
 
-#HomepageSvg{
+
+#HomepageSvg {
   margin-left: -5%;
   margin-right: -12px;
   overflow: hidden;
-  background-color:rgb(233, 229, 222); ;
-  
+  background-color: rgb(233, 229, 222);
+  ;
+
 }
 
-.HomepageArticlesRow{
+.HomepageArticlesRow {
   padding: 3% 5% 3% 5%;
   background-color: rgb(233, 229, 222);
 }
 
-.HomepageArticleImageCol{
+.HomepageArticleImageCol {
   display: flex;
   justify-content: center;
 }
 
-#HomepageAuthors{
+#HomepageAuthors {
   text-shadow: #bc2f2f;
 }
 
@@ -57,28 +63,62 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 20px;
 }
 
-.sticky-md a{
+.sticky-md a {
   margin: 5%;
   color: inherit;
 }
 
+#article-title-row {
+  background-color: #303030;
+  overflow: hidden;
+}
 
-.article-content{
+.article-title-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+
+}
+
+.article-title-col h1, p {
+  color: white;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.article-title-col img {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  
+  
+}
+
+
+.article-content {
   padding: 5%;
   text-align: justify;
 }
 
-
-
-@media (max-width: 767px) {
-  .sticky-md {
-    position: relative;
-    flex-direction: column; 
-    align-items: center;
-  }
-  .sticky-md img {
-    order: -1;
-  }
+.article-image {
+  width: 100%;
 }
+
+.sticky-md{
+  display: flex;
+  align-items: center;
+}
+
+.article-block{
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  
+}
+

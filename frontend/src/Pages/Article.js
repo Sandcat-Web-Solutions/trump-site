@@ -4,13 +4,21 @@ import "../App.css"
 function Article() {
     return (
         <Container fluid>
-            <Row className="d-flex flex-row-reverse">
-                <Col className="col-12 col-md-9">
-                    <div>
-                        <h1>Lorem ipsum dolor sit amet</h1>
-                        <hr/>
-
-                        <h4 className="article-content">Lorem ipsum dolor sit amet,
+            <Row id="article-title-row" style={{ marginLeft: "-12px", marginRight: "-12px" }}>
+                <Col className="col-12 col-md-6 article-title-col" >
+                    <img src={cat} alt="Cat" />
+                </Col>
+                <Col className="col-12 col-md-6 article-title-col">
+                    <h1>Title</h1>
+                    <p>s et accusam et justo duo dolores et ea rebum.
+                        Stet clita kasd gubergren, no sea takimata sanctus est
+                        Lorem ipsum dolor sit amet. Lore</p>
+                </Col>
+            </Row>
+            <Row className="d-flex">
+                <Col className="col-12 col-md-8">
+                    <div className="article-content">
+                        <h4 >Lorem ipsum dolor sit amet,
                             consetetur sadipscing elitr,
                             sed diam nonumy eirmod tempor
                             invidunt ut labore et dolore maagna
@@ -51,6 +59,9 @@ function Article() {
                             est Lorem ipsum dolor sit amet.
                             Lorem ipsum dolor sit amet,
                             consetetur sadipscing elitr,
+                        </h4>
+                        <img src={cat} className="article-image"></img>
+                        <h4>
                             sed diam nonumy eirmod tempor
                             invidunt ut labore et dolore magna
                             aliquyam erat, sed diam voluptua.
@@ -90,23 +101,21 @@ function Article() {
                             est Lorem ipsum dolor sit amet.</h4>
                     </div>
                 </Col>
-                <Col className="col-12 col-md-3">
+                <Col className="col-12 col-md-4">
                     <div className="sticky-md">
-                        <img src={cat}></img>
-                                          
+                        
                             <h4>written by John</h4>
-                            <a href="https://http.cat">this is a link to a cat</a>
+                            <hr style={{ width: "100%" }} />
                             
-                            <a href="https://http.cat">this is a link to a cat</a>
-                            
-                            <a href="https://http.cat">this is a link to a cat</a>
-                            
-                            <a href="https://http.cat">this is a link to a cat</a>
-                            
-                            <a href="https://http.cat">this is a link to a cat</a>
-                            
-                            <a href="https://http.cat">this is a link to a cat</a>
-                                                    
+                        <div className="article-block">
+                            <img src={cat} className="article-image" />
+                            <a href="https://http.cat">Another article</a>
+                        </div>
+
+                        <div className="article-block">
+                            <img src={cat} alt="Cat" className="article-image" />
+                            <a href="https://http.cat">Another article</a>
+                        </div>
                     </div>
                 </Col>
             </Row>
