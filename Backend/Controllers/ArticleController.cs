@@ -26,8 +26,8 @@ namespace Backend.Controllers {
 
 
     // GET: api/article
-    [HttpGet]
-    public IActionResult Get([FromQuery] int id) {
+    [HttpGet("{id}")]
+    public IActionResult Get(int id) {
       return _articleRepository.GetById(id) == null ? NotFound() : Ok(_articleRepository.GetById(id));
     }
 
@@ -38,16 +38,16 @@ namespace Backend.Controllers {
     }
 
     // PATCH: api/article
-    [HttpPatch]
-    public IActionResult Patch([FromQuery] int id, [FromBody] string text) {
-      Article a = _articleRepository.Patch(id, text);
+    [HttpPatch("{id}")]
+    public IActionResult Patch(int id, [FromBody] Article article) {
+      Article a = _articleRepository.Patch(id, article.title, article.text);
       if (a == null) return NotFound();
       return Ok(a);
     }
 
     // DELETE: api/article
-    [HttpDelete]
-    public IActionResult Delete([FromQuery] int id) {
+    [HttpDelete("{id}")]
+    public IActionResult Delete(int id) {
       try {
         _articleRepository.Delete(id);
       }

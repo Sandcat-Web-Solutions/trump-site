@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS `user`
 CREATE TABLE IF NOT EXISTS `article`
 (
     `id`              int(11)  NOT NULL AUTO_INCREMENT,
+    `title`           text     NOT NULL,
     `fk_user_id`      int(11)  NOT NULL,
     `text`            text     NOT NULL,
     `created_at`      datetime NOT NULL,

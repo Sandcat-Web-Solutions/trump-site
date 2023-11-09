@@ -26,10 +26,11 @@ public class ArticleRepository : IArticleRepository {
     return _context.article.ToList().Last();
   }
 
-  public Article Patch(int id, string text) {
+  public Article Patch(int id, string title, string text) {
     Article a = _context.article.Find(id);
     if (a == null) return null;
 
+    a.title = title;
     a.text = text;
     a.last_updated_at = DateTime.Now;
     _context.SaveChanges();
