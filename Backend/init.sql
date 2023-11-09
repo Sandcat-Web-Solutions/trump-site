@@ -5,7 +5,7 @@ DROP TABLE `user` CASCADE;
 CREATE TABLE IF NOT EXISTS `user`
 (
     `id`         int(11)  NOT NULL AUTO_INCREMENT,
-    `username`   text     NOT NULL,
+    `username`   text     NOT NULL UNIQUE,
     `password`   text     NOT NULL,
     `is_admin`   boolean  NOT NULL DEFAULT false,
     `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,

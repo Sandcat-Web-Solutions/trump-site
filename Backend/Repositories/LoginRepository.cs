@@ -28,6 +28,17 @@ public class LoginRepository : ILoginRepository {
 
   public List<User> GetAllUsers() => _context.user.ToList();
 
+  public string GetTokenIfValid(User user) {
+    var dbuser = _context.user.FirstOrDefault(u => u.username == user.username);
+    if (dbuser == null || dbuser.password != GenerateArgon2Hash(user.password)) return "-1";
+    return GenerateJwtToken(user.username);
+  }
+
+  public User GetUserFromToken(string token) {
+    var jti = DecodeJwtToken(token);
+    return _context.user.FirstOrDefault(u => u.username == jti);
+  }
+
 
   public string GenerateArgon2Hash(string password) {
     string _out;
