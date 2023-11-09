@@ -35,8 +35,8 @@ public class LoginRepository : ILoginRepository {
   }
 
   public User GetUserFromToken(string token) {
-    var jti = DecodeJwtToken(token);
-    return _context.user.FirstOrDefault(u => u.username == jti);
+    var username = DecodeJwtToken(token.Split(" ")[1]);
+    return _context.user.FirstOrDefault(u => u.username == username);
   }
 
 
@@ -75,8 +75,8 @@ public class LoginRepository : ILoginRepository {
   public string DecodeJwtToken(string token) {
     var handler = new JwtSecurityTokenHandler();
     var jsonToken = handler.ReadToken(token);
-    var tokenS = handler.ReadToken(token) as JwtSecurityToken;
-    var jti = tokenS.Claims.First(claim => claim.Type == "jti").Value;
-    return jti;
+    var tokenS = jsonToken as JwtSecurityToken;
+    var username = tokenS.Claims.First(claim => claim.Type == "sub").Value;
+    return username;
   }
 }

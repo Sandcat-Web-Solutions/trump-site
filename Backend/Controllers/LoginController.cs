@@ -36,12 +36,11 @@ namespace Backend.Controllers {
     }
 
     // GET: api/login
-    [Authorize]
     [HttpGet]
+    [Authorize(AuthenticationSchemes = "Bearer")]
     public IActionResult Get() {
-      string token = Request.Headers["Authorization"];
-      var usr = _loginRepository.GetUserFromToken(token);
-      usr.password = null;
+      var usr = _loginRepository.GetUserFromToken(Request.Headers["Authorization"]);
+      usr.password = "...";
       return Ok(usr);
     }
 
