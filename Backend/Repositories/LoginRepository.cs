@@ -4,6 +4,7 @@ using System.Text;
 using Konscious.Security.Cryptography;
 using Microsoft.IdentityModel.Tokens;
 using Backend.Interfaces;
+using Backend.Models;
 
 namespace Backend.Repositories;
 
@@ -14,6 +15,15 @@ public class LoginRepository : ILoginRepository {
   public LoginRepository(ApplicationDbContext context, IConfiguration configuration) {
     _context = context;
     _configuration = configuration;
+  }
+
+  public bool UserExists(string username) => _context.user.Any(u => u.username == username);
+
+  public User Create(User user) {
+    user.password = GenerateArgon2Hash(user.password);
+    _context.user.Add(user);
+    _context.SaveChanges();
+    return user;
   }
 
 

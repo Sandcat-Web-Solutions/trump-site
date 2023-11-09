@@ -8,12 +8,12 @@ public class User {
   public string password { get; set; }
 
   public bool is_admin { get; set; }
-  public DateTime createad_at { get; set; }
+  public DateTime created_at { get; set; }
 
   public User(string username, string password) {
     this.username = username;
     this.password = password;
     is_admin = false;
-    createad_at = DateTime.Now.ToUniversalTime();
+    created_at = DateTime.Now.ToUniversalTime();
   }
 }
