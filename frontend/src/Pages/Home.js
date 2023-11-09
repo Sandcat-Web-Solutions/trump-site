@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import images from "../Images/images";
+
 
 
 
@@ -14,66 +14,82 @@ function Home() {
     {
       "id": 1,
       "fk_user_id": 1,
+      "title": "gatito",
       "text": "# Title ## John ### Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit amet",
       "created_at": "2023-11-02T11:54:53",
       "last_updated_at": "2023-11-02T11:54:53",
-      "imageId": 4
+      "imageId": 4,
+      "image_url": "https://github.com/Sandcat-Web-Solutions/trump-site/assets/104757716/3a4f27b1-8321-490d-8025-2826a26d00eb"
   },
   {
       "id": 2,
       "fk_user_id": 1,
+      "title": "gatito",
       "text": "# Title ## John ### Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit amet",
       "created_at": "2023-11-02T11:54:53",
       "last_updated_at": "2023-11-02T11:54:53",
-      "imageId": 2
+      "imageId": 2,
+      "image_url": "https://github.com/Sandcat-Web-Solutions/trump-site/assets/104757716/3a4f27b1-8321-490d-8025-2826a26d00eb"
   },
   {
       "id": 3,
       "fk_user_id": 1,
+      "title": "gatito",
       "text": "# Title ## John ### Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit amet",
       "created_at": "2023-11-02T11:54:53",
       "last_updated_at": "2023-11-02T11:54:53",
-      "imageId": 3
+      "imageId": 3,
+      "image_url": "https://github.com/Sandcat-Web-Solutions/trump-site/assets/104757716/3a4f27b1-8321-490d-8025-2826a26d00eb"
   },
   {
       "id": 4,
       "fk_user_id": 1,
+      "title": "gatito",
       "text": "# Title ## John ### Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit amet",
       "created_at": "2023-11-02T11:54:53",
       "last_updated_at": "2023-11-02T11:54:53",
-      "imageId": 3
+      "imageId": 3,
+      "image_url": "https://github.com/Sandcat-Web-Solutions/trump-site/assets/104757716/3a4f27b1-8321-490d-8025-2826a26d00eb"
   },
   {
       "id": 5,
       "fk_user_id": 1,
+      "title": "gatito",
       "text": "# Title ## John ### Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit amet",
       "created_at": "2023-11-02T11:54:53",
       "last_updated_at": "2023-11-02T11:54:53",
-      "imageId": 5
+      "imageId": 5,
+      "image_url": "https://github.com/Sandcat-Web-Solutions/trump-site/assets/104757716/3a4f27b1-8321-490d-8025-2826a26d00eb"
   },
   {
       "id": 6,
       "fk_user_id": 1,
+      "title": "gatito",
       "text": "# Title ## John ### Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit amet",
       "created_at": "2023-11-02T11:54:53",
       "last_updated_at": "2023-11-02T11:54:53",
-      "imageId": 9
+      "imageId": 9,
+      "image_url": "https://github.com/Sandcat-Web-Solutions/trump-site/assets/104757716/3a4f27b1-8321-490d-8025-2826a26d00eb"
   },
   {
       "id": 7,
       "fk_user_id": 1,
+      "title": "gatito",
       "text": "# Title ## John ### Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit amet",
       "created_at": "2023-11-02T11:54:53",
       "last_updated_at": "2023-11-02T11:54:53",
-      "imageId": 9
+      "imageId": 9,
+      "image_url": "https://github.com/Sandcat-Web-Solutions/trump-site/assets/104757716/3a4f27b1-8321-490d-8025-2826a26d00eb"
   },
   {
       "id": 8,
       "fk_user_id": 1,
+      "title": "gatito",
       "text": "# Title ## John ### Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit amet",
       "created_at": "2023-11-02T11:54:53",
       "last_updated_at": "2023-11-02T11:54:53",
-      "imageId": 6
+      "imageId": 6,
+      "image_url": "https://github.com/Sandcat-Web-Solutions/trump-site/assets/104757716/3a4f27b1-8321-490d-8025-2826a26d00eb"
   }];
 
   function formatLastUpdatedAt(inputDate) {
@@ -92,15 +108,15 @@ function Home() {
   const articleElements = articles.map((article) => (
     <Row key={article.id} className="HomepageArticlesRow">
       <Col className="col-12 col-md-6 HomepageArticleCol" style={{ paddingLeft: "4%" }}>
-        <h2>{article.text.split("##")[1]}</h2>
+        <h2>{article.title}</h2>
         
-        <p className="HomepageArticleText">{article.text.split("###")[1]} </p>       
+        <p className="HomepageArticleText">{article.text}</p>       
         
         <p>{formatLastUpdatedAt(article.last_updated_at)}</p>
         
       </Col>
       <Col className="col-12 col-md-6 HomepageArticleImageCol">
-        <img src={images[`cat${article.imageId}`]} alt="Cat" onClick={() => handleImageClick(article.id)} style={{ width: "90%", borderRadius: "5px"}}/>
+        <img src={article.image_url} alt="Cat" onClick={() => handleImageClick(article.id)} style={{ width: "90%", borderRadius: "5px"}}/>
       </Col>
     </Row>
   ));

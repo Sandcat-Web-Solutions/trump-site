@@ -69,7 +69,7 @@ body {
   }
 
   .HomepageArticleImageCol {
-    transition: all 0.5s;
+    transition: transform 0.5s;
   }
 #HomepageAuthors {
   text-shadow: #bc2f2f;
@@ -157,6 +157,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center; 
+  padding: 10px 0 10px 0;
   
 }
 
