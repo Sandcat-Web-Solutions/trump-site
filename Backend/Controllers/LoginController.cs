@@ -17,11 +17,20 @@ namespace Backend.Controllers {
       _loginRepository = loginRepository;
     }
 
-    // GET: api/login
+    // GET: api/users
+    [Route("/api/Users")]
     [HttpGet]
     public IActionResult Get() {
-      string test = _loginRepository.GenerateArgon2Hash("test");
-      return Ok(test);
+      var users = _loginRepository.GetAllUsers();
+
+      var gatos = users.Select(u => new {
+        id = u.id,
+        username = u.username,
+        is_admin = u.is_admin,
+        created_at = u.created_at
+      });
+
+      return Ok(gatos);
     }
 
     // POST: api/login

@@ -7,6 +7,6 @@ public interface IArticleRepository {
   public Article GetById(int id);
 
   public Article Create(Article article);
-  public Article Patch(int id, string title, string text);
+  public Article Patch(int id, string title, string text, string image_url);
   public void Delete(int id);
 }

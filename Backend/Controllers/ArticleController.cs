@@ -40,7 +40,7 @@ namespace Backend.Controllers {
     // PATCH: api/article
     [HttpPatch("{id}")]
     public IActionResult Patch(int id, [FromBody] Article article) {
-      Article a = _articleRepository.Patch(id, article.title, article.text);
+      Article a = _articleRepository.Patch(id, article.title, article.text, article.image_url);
       if (a == null) return NotFound();
       return Ok(a);
     }

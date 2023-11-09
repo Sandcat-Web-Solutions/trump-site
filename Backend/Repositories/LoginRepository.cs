@@ -26,6 +26,8 @@ public class LoginRepository : ILoginRepository {
     return user;
   }
 
+  public List<User> GetAllUsers() => _context.user.ToList();
+
 
   public string GenerateArgon2Hash(string password) {
     string _out;
