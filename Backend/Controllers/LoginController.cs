@@ -40,6 +40,7 @@ namespace Backend.Controllers {
     [Authorize(AuthenticationSchemes = "Bearer")]
     public IActionResult Get() {
       var usr = _loginRepository.GetUserFromToken(Request.Headers["Authorization"]);
+      if (usr == null) return Unauthorized();
       usr.password = "...";
       return Ok(usr);
     }
@@ -54,14 +55,19 @@ namespace Backend.Controllers {
 
     // PATCH: api/login
     [HttpPatch]
-    public IActionResult Patch([FromBody] string value) {
-      return Ok("Hello World");
+    [Authorize(AuthenticationSchemes = "Bearer")]
+    public IActionResult Patch([FromBody] User user) {
+      var usr = _loginRepository.GetUserFromToken(Request.Headers["Authorization"]);
+      if (usr == null) return Unauthorized();
+      var newusr = _loginRepository.Patch(usr.id, user.username, user.password);
+      return Ok(newusr);
     }
 
     // DELETE: api/login
-    [HttpDelete]
-    public IActionResult Delete([FromBody] string value) {
-      return Ok("Hello World");
-    }
+    // [HttpDelete]
+    // [Authorize(AuthenticationSchemes = "Bearer")]
+    // public IActionResult Delete() {
+    //   
+    // }
   }
 }

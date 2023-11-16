@@ -26,12 +26,21 @@ public class LoginRepository : ILoginRepository {
     return user;
   }
 
+
+  public User Patch(int id, string username, string password) {
+    if (username != "") _context.user.FirstOrDefault(u => u.id == id).username = username;
+    if (password != "") _context.user.FirstOrDefault(u => u.id == id).password = GenerateArgon2Hash(password);
+
+    _context.SaveChanges();
+    return _context.user.FirstOrDefault(u => u.id == id);
+  }
+
   public List<User> GetAllUsers() => _context.user.ToList();
 
   public string GetTokenIfValid(User user) {
     var dbuser = _context.user.FirstOrDefault(u => u.username == user.username);
     if (dbuser == null || dbuser.password != GenerateArgon2Hash(user.password)) return "-1";
-    return GenerateJwtToken(user.username);
+    return GenerateJwtToken(dbuser.id);
   }
 
   public User GetUserFromToken(string token) {
@@ -39,8 +48,9 @@ public class LoginRepository : ILoginRepository {
 
     if (tmp.StartsWith("Bearer ")) tmp = tmp.Substring(7);
 
-    var username = DecodeJwtToken(tmp);
-    return _context.user.FirstOrDefault(u => u.username == username);
+    var id = DecodeJwtToken(tmp);
+    if (_context.user.FirstOrDefault(u => u.id == id) == null) return null;
+    return _context.user.FirstOrDefault(u => u.id == id);
   }
 
 
@@ -56,12 +66,12 @@ public class LoginRepository : ILoginRepository {
     return _out;
   }
 
-  public string GenerateJwtToken(string username) {
+  public string GenerateJwtToken(int id) {
     var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
     var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
     var claims = new[] {
-      new Claim(JwtRegisteredClaimNames.Sub, username),
+      new Claim(JwtRegisteredClaimNames.Sub, id.ToString()),
       new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
     };
 
@@ -76,11 +86,11 @@ public class LoginRepository : ILoginRepository {
     return new JwtSecurityTokenHandler().WriteToken(token);
   }
 
-  public string DecodeJwtToken(string token) {
+  public int DecodeJwtToken(string token) {
     var handler = new JwtSecurityTokenHandler();
     var jsonToken = handler.ReadToken(token);
     var tokenS = jsonToken as JwtSecurityToken;
-    var username = tokenS.Claims.First(claim => claim.Type == "sub").Value;
-    return username;
+    var id = tokenS.Claims.First(claim => claim.Type == "sub").Value;
+    return Convert.ToInt32(id);
   }
 }
