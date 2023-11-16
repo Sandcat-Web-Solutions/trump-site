@@ -30,9 +30,10 @@ public class ArticleRepository : IArticleRepository {
     Article a = _context.article.Find(id);
     if (a == null) return null;
 
-    a.title = title;
-    a.text = text;
-    a.image_url = image_url;
+    if (title != "") a.title = title;
+    if (text != "") a.text = text;
+    if (image_url != "") a.image_url = image_url;
+
     a.last_updated_at = DateTime.Now;
     _context.SaveChanges();
     return _context.article.Find(id);
@@ -40,6 +41,9 @@ public class ArticleRepository : IArticleRepository {
 
   public void Delete(int id) {
     try {
+      _context.comment.RemoveRange(_context.comment.Where(c => c.fk_article_id == id));
+      _context.SaveChanges();
+
       _context.article.Remove(_context.article.Find(id));
       _context.SaveChanges();
     }

@@ -43,10 +43,17 @@ CREATE TABLE IF NOT EXISTS `comment`
   DEFAULT CHARSET = utf8;
 
 # TODO: Delete development test data later
-INSERT INTO `user` (`username`, `password`, `created_at`)
-VALUES ('cat',
-        'P2CZWSYUU98UKnSf/VeP9lFi8LhKwi3QUWZtCoZjZ6XazG+xtJxFOg8jZx/ALao3mT46CReX49T27vIZbsMi6KF4d0GfJFTLJ5+0a2lw2FPHZC/61FVR6l/llBdKOaMtOl7xQBW1ix4GWmKHIHdRTZypUHMiNBDnT7jXmoKH/48=',
-        '2018-01-01 00:00:00');
+
+INSERT INTO `user` (`username`, `password`, `is_admin`, `created_at`)
+VALUES ('user',
+        'eUBaWQQuNeDDtO8LvpYstDWn1bYiY0qLuQhnKrP7KlGpnYr5kM0jXafb5OzThi3Z7uHxIbYmvBFp33wHRiLGOghbfi2VKjSZCTZ88zKrTahRdd464qyF3ETS4RtU2Vx33N6LvSwrEgCQU0rhZiaHm6u27J7SnZe+OynA7L+ShCo=',
+        false,
+        '2019-01-01 00:00:00'),
+       ('admin',
+        'TctRz0PN//3+7j1m1ekJ1zalFYDcKd4HdSWVNlhS9iHiu1nKXUlPyMkEReuePeHyuxU6E+Mr2A5g4dlf04c4EVPdnEJqg5KznudAbQFZ47IlFNTPnhRZKhabA7RXQWLMSMlGYsSd0EHcEbFjyzV87/526nGsGMkXdS2Xwcz5zF0=',
+        true,
+        '2023-01-01 00:00:00');
+
 
 INSERT INTO `article` (`title`, `fk_user_id`, `text`, `image_url`, `created_at`, `last_updated_at`)
 VALUES ('Title Test',
