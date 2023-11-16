@@ -14,6 +14,7 @@ namespace Backend {
       // Add dependency injected repositories
       builder.Services.AddScoped<ILoginRepository, LoginRepository>();
       builder.Services.AddScoped<IArticleRepository, ArticleRepository>();
+      builder.Services.AddScoped<ICommentRepository, CommentRepository>();
 
       var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
       string aspNetCoreUrls = Environment.GetEnvironmentVariable("ASPNETCORE_CONNECTIONSTRINGS_DEFAULTCONNECTION");
