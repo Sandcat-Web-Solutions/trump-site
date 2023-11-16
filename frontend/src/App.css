@@ -1,69 +1,71 @@
-html,
-body {
-  background-color: black;
-}
+  html,
+  body {
+    background-color: black;
+  }
 
-#HomepageRow {
-  background-image: url("./Images/TrumpHomePage.jpg");
-  background-size: contain;
-  background-color: black;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: flex-end;
-  padding-bottom: 5%;
-  padding-left: 3%;
-}
+  #HomepageRow {
+    background-image: url("./Images/TrumpHomePage.jpg");
+    background-size: contain;
+    background-color: black;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding-bottom: 5%;
+    padding-left: 3%;
+  }
 
-#HomepageRow h1 {
-  font-size: 100px;
-  color: #c22822;
-  
-}
+  #HomepageRow h1 {
+    font-size: 100px;
+    color: #c22822;
 
-#HomepageRow h2 {
-  color: white;
-  
-}
-.link{
-  color: black;
-}
+  }
+
+  #HomepageRow h2 {
+    color: white;
+
+  }
+
+  .link {
+    color: black;
+  }
 
 
-#HomepageSvg {
-  margin-left: -5%;
-  margin-right: -12px;
-  overflow: hidden;
-  background-color: rgb(233, 229, 222);
-  ;
+  #HomepageSvg {
+    margin-left: -5%;
+    margin-right: -12px;
+    overflow: hidden;
+    background-color: rgb(233, 229, 222);
+    ;
 
-}
+  }
 
-.HomepageArticlesRow {
-  padding: 3% 5% 3% 5%;
-  background-color: rgb(233, 229, 222);
-  display: flex;
-  align-items: flex-end;
-}
+  .HomepageArticlesRow {
+    padding: 3% 5% 3% 5%;
+    background-color: rgb(233, 229, 222);
+    display: flex;
+    align-items: flex-end;
+  }
 
-.HomepageArticlesRow:nth-of-type(odd){
-  flex-direction: row-reverse;
-  background-color: #222;
-}
+  .HomepageArticlesRow:nth-of-type(odd) {
+    flex-direction: row-reverse;
+    background-color: #222;
+  }
 
-.HomepageArticlesRow:nth-of-type(odd) p, .HomepageArticlesRow:nth-of-type(odd) h2{
-  color: #EEE;
-}
+  .HomepageArticlesRow:nth-of-type(odd) p,
+  .HomepageArticlesRow:nth-of-type(odd) h2 {
+    color: #EEE;
+  }
 
-.HomepageArticleImageCol {
-  display: flex;
-  justify-content: center;
-}
+  .HomepageArticleImageCol {
+    display: flex;
+    justify-content: center;
+  }
 
-  .HomepageArticleImageCol:hover{
+  .HomepageArticleImageCol:hover {
     transform: scale(1.05);
     cursor: pointer;
   }
@@ -71,93 +73,159 @@ body {
   .HomepageArticleImageCol {
     transition: transform 0.5s;
   }
-#HomepageAuthors {
-  text-shadow: #bc2f2f;
-}
 
-.HomepageArticleText:hover{
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-
-.sticky-md {
-  position: sticky;
-  top: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 20px;
-}
-
-.sticky-md a {
-  margin: 5%;
-  color: inherit;
-}
-
-#article-title-row {
-  background-color: #303030;
-  overflow: hidden;
-}
-
-.article-title-col {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-
-}
-
-.article-title-col h1 {
-  color: white;
-  margin-left: 10%;
-  margin-right: 10%;
-}
-
-@media screen and (max-width: 768px) {
-  .article-title-col{
-    height: 50vh;
+  #HomepageAuthors {
+    text-shadow: #bc2f2f;
   }
-  
-}
 
-.article-title-col p{
-  color: white;
-  margin-left: 10%;
-  margin-right: 10%;
-  text-align: center;
-}
-
-.article-title-col img {
-  flex-shrink: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  
-  
-}
+  .HomepageArticleText:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
 
 
-.article-content {
-  padding: 5%;
-  text-align: justify;
-}
+  .sticky-md {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+  }
 
-.article-image {
-  width: 100%;
-}
+  .sticky-md a {
+    margin: 5%;
+    color: inherit;
+  }
 
-.sticky-md{
-  display: flex;
-  align-items: center;
-}
+  #article-title-row {
+    background-color: #303030;
+    overflow: hidden;
+  }
 
-.article-block{
-  display: flex;
-  flex-direction: column;
-  align-items: center; 
-  padding: 10px 0 10px 0;
-  
-}
+  .article-title-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 
+  }
+
+  .article-title-col h1 {
+    color: white;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  @media screen and (max-width: 768px) {
+    .article-title-col {
+      height: 50vh;
+    }
+
+  }
+
+  .article-title-col p {
+    color: white;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+  }
+
+  .article-title-col img {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+
+  }
+
+
+  .article-content {
+    padding: 5%;
+    text-align: justify;
+  }
+
+  .article-image {
+    width: 100%;
+  }
+
+  .sticky-md {
+    display: flex;
+    align-items: center;
+  }
+
+  .article-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0 10px 0;
+
+  }
+
+  .vl {
+    border-left: 10px solid #9B1F1C;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    margin-left: -3px;
+    top: 0;
+  }
+
+  .circle {
+    position: absolute;
+    margin-top: 30px;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    margin-left: 2px;
+    width: 40px;
+    height: 40px;
+    z-index: 1000;
+    
+    border-radius: 50%;
+    background-color: #1E0B8B;
+  }
+
+  .timeline-row {
+    position: relative;
+    background-color: #E9E5DE;
+    display: flex;
+  }
+
+  .timeline-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    
+  }
+
+  .timeline-col img {
+    width: 100%; 
+    height: auto;
+  }
+
+  .timeline-content {
+    position: relative;
+  }
+
+  @media screen and (max-width: 768px) {
+    .vl {
+      position: absolute;
+      left: 80%;
+      margin-left: -3px;
+      top: 0;
+    }
+
+    .circle {
+      position: absolute;
+      margin-top: 30px;
+      left: 80%;
+      margin-left: 1px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #1E0B8B;
+    }
+  }
