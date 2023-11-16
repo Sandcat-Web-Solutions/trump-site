@@ -35,7 +35,11 @@ public class LoginRepository : ILoginRepository {
   }
 
   public User GetUserFromToken(string token) {
-    var username = DecodeJwtToken(token.Split(" ")[1]);
+    var tmp = token;
+
+    if (tmp.StartsWith("Bearer ")) tmp = tmp.Substring(7);
+
+    var username = DecodeJwtToken(tmp);
     return _context.user.FirstOrDefault(u => u.username == username);
   }
 

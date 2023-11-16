@@ -1,5 +1,5 @@
-DROP TABLE `article` CASCADE;
 DROP TABLE `comment` CASCADE;
+DROP TABLE `article` CASCADE;
 DROP TABLE `user` CASCADE;
 
 CREATE TABLE IF NOT EXISTS `user`
@@ -30,13 +30,15 @@ CREATE TABLE IF NOT EXISTS `article`
 
 CREATE TABLE IF NOT EXISTS `comment`
 (
-    `id`         int(11)  NOT NULL AUTO_INCREMENT,
-    `fk_user_id` int(11)  NOT NULL,
-    `text`       text     NOT NULL,
-    `created_at` datetime NOT NULL,
+    `id`            int(11)  NOT NULL AUTO_INCREMENT,
+    `fk_user_id`    int(11)  NOT NULL,
+    `fk_article_id` int(11)  NOT NULL,
+    `text`          text     NOT NULL,
+    `created_at`    datetime NOT NULL,
     PRIMARY KEY (`id`),
     KEY `fk_user_id` (`fk_user_id`),
-    CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`fk_user_id`) REFERENCES `user` (`id`)
+    CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`fk_user_id`) REFERENCES `user` (`id`),
+    CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`fk_article_id`) REFERENCES `article` (`id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
 
@@ -54,5 +56,8 @@ VALUES ('Title Test',
         '2020-01-01 00:00:00',
         '2023-01-01 00:00:00');
 
-INSERT INTO `comment` (`fk_user_id`, `text`, `created_at`)
-VALUES (1, 'Great article! I loved it! TEST', '2023-01-01 00:00:00')
+INSERT INTO `comment` (`fk_user_id`, `fk_article_id`, `text`, `created_at`)
+VALUES (1,
+        1,
+        'Never read a worse article in my life. I think my eyes are bleeding. My cat could write better than this.',
+        '2020-01-01 00:00:00');
