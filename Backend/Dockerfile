@@ -17,4 +17,5 @@ RUN dotnet publish "Backend.csproj" -c Release -o /app/publish /p:UseAppHost=fal
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+COPY ./init.sql .
 ENTRYPOINT ["dotnet", "Backend.dll"]
