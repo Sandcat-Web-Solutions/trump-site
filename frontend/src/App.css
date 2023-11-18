@@ -164,6 +164,50 @@
 
   }
 
+  .timeline-container {
+
+    background-color: #E9E5DE;
+    min-height: 100vh;
+  }
+
+  .timeline-title {
+    height: 100vh;
+    background-image: url("./Images/trump2.jpg");
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding-bottom: 5%;
+    padding-left: 3%;
+    position: relative;
+  }
+
+
+  .timeline-title h1 {
+    font-size: 70px;
+    color: rgb(241, 235, 235);
+  }
+
+  .timeline-title p {
+    font-size: 30px;
+    color: #cecece;
+  }
+
+  .timeline-triangle {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 30vh 58vw;
+    border-color: transparent transparent #E9E5DE transparent;
+    z-index: 1;
+  }
+
   .vl {
     border-left: 10px solid #9B1F1C;
     height: 100%;
@@ -182,35 +226,51 @@
     width: 40px;
     height: 40px;
     z-index: 1000;
-    
+
     border-radius: 50%;
     background-color: #1E0B8B;
   }
 
   .timeline-row {
     position: relative;
-    background-color: #E9E5DE;
     display: flex;
+    padding-bottom: 15%;
+
   }
 
   .timeline-col {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
-    
+    padding: 10px 5px 5px 15px;
+
   }
 
-  .timeline-col img {
-    width: 100%; 
-    height: auto;
-  }
+ 
+
+
 
   .timeline-content {
     position: relative;
+    width: 65%;
   }
 
+  .timeline-content img {
+    width: 100%;
+  }
+
+  .timeline-content p {
+    font-size: 19px;
+  }
+
+
   @media screen and (max-width: 768px) {
+
+    .timeline-triangle{
+      z-index: -1;
+    }
+    
+    
     .vl {
       position: absolute;
       left: 80%;
@@ -227,5 +287,17 @@
       height: 30px;
       border-radius: 50%;
       background-color: #1E0B8B;
+    }
+
+    .timeline-col p {
+      max-width: 75%;
+    }
+
+    .timeline-col img {
+      max-width: 80%;
+    }
+
+    .timeline-row:nth-of-type(odd) {
+      flex-direction: column-reverse;
     }
   }
