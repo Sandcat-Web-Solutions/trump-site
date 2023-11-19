@@ -1,4 +1,18 @@
 import { Container, Row, Col } from "react-bootstrap";
+import trump from "../Images/TrumpYoung.png";
+import university from "../Images/University.png";
+import ivana from "../Images/Ivana.png";
+import tower from "../Images/TrumpTower.png";
+import finance from "../Images/finance.png";
+import marla from "../Images/marla.png";
+import tvshow from "../Images/tvshow.png";
+import melania from "../Images/melania.png";
+import chicago from "../Images/chicago.png";
+import campaign from "../Images/campaign.png";
+import helicopter from "../Images/helicopter.png";
+import korea from "../Images/korea.png";
+import impeachment from "../Images/impeachment.png";
+import campaign2 from "../Images/2024.png";
 
 function Timeline() {
     return (
@@ -12,9 +26,9 @@ function Timeline() {
             </Row>
             <Row className="timeline-row" style={{ paddingTop: "5%" }}>
                 <Col className="col-12 col-md-6 timeline-col">
-                    <div className="timeline-content">
+                    <div className="timeline-content timeline-image-content">
                         <div>
-                            <img src="https://user-images.githubusercontent.com/104757716/283453676-82aa38e0-484e-4d99-ad11-0388756f8e06.jpeg" alt=""></img>
+                            <img src={trump} alt=""></img>
                         </div>
                     </div>
 
@@ -32,21 +46,21 @@ function Timeline() {
                 <Col className="col-12 col-md-6 timeline-col">
                     <div className="timeline-content">
                         <h2>1968 - Education</h2>
-                        <p>Donald Trump attends Fordham University in 1984, later transferring to   the Wharton School of the University of Pennsylva, which he graduates from with a bachelor of science in economics.</p>
+                        <p>Donald Trump attends Fordham University in 1984, later transferring to the Wharton School of the University of Pennsylvania, which he graduates from with a bachelor of science in economics.</p>
                     </div>
                     <span className="circle"></span>
                     <div className="vl"></div>
                 </Col>
                 <Col className="col-12 col-md-6 timeline-col">
-                    <div className="timeline-content">
-                        <img src="https://user-images.githubusercontent.com/104757716/283453676-82aa38e0-484e-4d99-ad11-0388756f8e06.jpeg" alt=""></img>
+                    <div className="timeline-content timeline-image-content">
+                        <img src={university} alt=""></img>
                     </div>
                 </Col>
             </Row>
             <Row className="timeline-row">
                 <Col className="col-12 col-md-6 timeline-col">
-                    <div className="timeline-content">
-                        <img src="https://user-images.githubusercontent.com/104757716/283453676-82aa38e0-484e-4d99-ad11-0388756f8e06.jpeg" alt=""></img>
+                    <div className="timeline-content timeline-image-content">
+                        <img src={ivana} alt=""></img>
                     </div>
                 </Col>
                 <Col className="timeline-col col-12 col-md-6">
@@ -68,15 +82,15 @@ function Timeline() {
                     <div className="vl"></div>
                 </Col>
                 <Col className="col-12 col-md-6 timeline-col">
-                    <div className="timeline-content">
-                        <img src="https://user-images.githubusercontent.com/104757716/283453676-82aa38e0-484e-4d99-ad11-0388756f8e06.jpeg" alt=""></img>
+                    <div className="timeline-content timeline-image-content">
+                        <img src={tower} alt=""></img>
                     </div>
                 </Col>
             </Row>
             <Row className="timeline-row">
                 <Col className="col-12 col-md-6 timeline-col">
-                    <div className="timeline-content">
-                        <img src="https://user-images.githubusercontent.com/104757716/283453676-82aa38e0-484e-4d99-ad11-0388756f8e06.jpeg" alt=""></img>
+                    <div className="timeline-content timeline-image-content">
+                        <img src={finance} alt=""></img>
                     </div>
                 </Col>
                 <Col className="timeline-col col-12 col-md-6">
@@ -98,15 +112,15 @@ function Timeline() {
                     <div className="vl"></div>
                 </Col>
                 <Col className="col-12 col-md-6 timeline-col">
-                    <div className="timeline-content">
-                        <img src="https://user-images.githubusercontent.com/104757716/283453676-82aa38e0-484e-4d99-ad11-0388756f8e06.jpeg" alt=""></img>
+                    <div className="timeline-content timeline-image-content">
+                        <img src={marla} alt=""></img>
                     </div>
                 </Col>
             </Row>
             <Row className="timeline-row">
                 <Col className="col-12 col-md-6 timeline-col">
-                    <div className="timeline-content">
-                        <img src="https://user-images.githubusercontent.com/104757716/283453676-82aa38e0-484e-4d99-ad11-0388756f8e06.jpeg" alt=""></img>
+                    <div className="timeline-content timeline-image-content">
+                        <img src={tvshow} alt=""></img>
                     </div>
                 </Col>
                 <Col className="col-12 col-md-6 timeline-col">
@@ -128,15 +142,15 @@ function Timeline() {
                     <div className="vl"></div>
                 </Col>
                 <Col className="col-12 col-md-6 timeline-col">
-                    <div className="timeline-content">
-                        <img src="https://user-images.githubusercontent.com/104757716/283453676-82aa38e0-484e-4d99-ad11-0388756f8e06.jpeg" alt=""></img>
+                    <div className="timeline-content timeline-image-content">
+                        <img src={melania} alt=""></img>
                     </div>
                 </Col>
-            </Row>            
+            </Row>
             <Row className="timeline-row">
                 <Col className="col-12 col-md-6 timeline-col">
-                    <div className="timeline-content">
-                        <img src="https://user-images.githubusercontent.com/104757716/283453676-82aa38e0-484e-4d99-ad11-0388756f8e06.jpeg" alt=""></img>
+                    <div className="timeline-content timeline-image-content">
+                        <img src={chicago} alt=""></img>
                     </div>
                 </Col>
                 <Col className="timeline-col col-12 col-md-6">
@@ -158,15 +172,15 @@ function Timeline() {
                     <div className="vl"></div>
                 </Col>
                 <Col className="col-12 col-md-6 timeline-col">
-                    <div className="timeline-content">
-                        <img src="https://user-images.githubusercontent.com/104757716/283453676-82aa38e0-484e-4d99-ad11-0388756f8e06.jpeg" alt=""></img>
+                    <div className="timeline-content timeline-image-content">
+                        <img src={campaign} alt=""></img>
                     </div>
                 </Col>
-            </Row> 
+            </Row>
             <Row className="timeline-row">
                 <Col className="col-12 col-md-6 timeline-col">
-                    <div className="timeline-content">
-                        <img src="https://user-images.githubusercontent.com/104757716/283453676-82aa38e0-484e-4d99-ad11-0388756f8e06.jpeg" alt=""></img>
+                    <div className="timeline-content timeline-image-content">
+                        <img src={helicopter} alt=""></img>
                     </div>
                 </Col>
                 <Col className="timeline-col col-12 col-md-6">
@@ -181,28 +195,28 @@ function Timeline() {
             <Row className="timeline-row">
                 <Col className="timeline-col col-12 col-md-6">
                     <div className="timeline-content">
-                        <h2>2016 - Election</h2>
-                        <p>To many peoples surprise, Donald Trump ran for president of the united states in 2016. He would win the republican nomination and defeat Hillary Clinton to become president.</p>
+                        <h2>2019 - North Korea</h2>
+                        <p>After having met Kim Jong Un several times, Trump becomes the first ever us president to step into North Korea in 2019.</p>
                     </div>
                     <span className="circle"></span>
                     <div className="vl"></div>
                 </Col>
                 <Col className="col-12 col-md-6 timeline-col">
-                    <div className="timeline-content">
-                        <img src="https://user-images.githubusercontent.com/104757716/283453676-82aa38e0-484e-4d99-ad11-0388756f8e06.jpeg" alt=""></img>
+                    <div className="timeline-content timeline-image-content">
+                        <img src={korea} alt=""></img>
                     </div>
                 </Col>
-            </Row> 
+            </Row>
             <Row className="timeline-row">
                 <Col className="col-12 col-md-6 timeline-col">
-                    <div className="timeline-content">
-                        <img src="https://user-images.githubusercontent.com/104757716/283453676-82aa38e0-484e-4d99-ad11-0388756f8e06.jpeg" alt=""></img>
+                    <div className="timeline-content timeline-image-content">
+                        <img src={impeachment} alt=""></img>
                     </div>
                 </Col>
                 <Col className="timeline-col col-12 col-md-6">
                     <div className="timeline-content">
-                        <h2>2019 - North Korea</h2>
-                        <p>After having met Kim Jong Un several times, Trump becomes the first ever us president to step into North Korea in 2019.</p>
+                        <h2>2020 - Impeachment and electoral defeat</h2>
+                        <p>Trump runs for president a second time in 2020, but is defeated by Joe Biden. He also gets impeached twice for abuse of office and obstruction of justice.</p>
                     </div>
                     <span className="circle"></span>
                     <div className="vl"></div>
@@ -211,18 +225,20 @@ function Timeline() {
             <Row className="timeline-row">
                 <Col className="timeline-col col-12 col-md-6">
                     <div className="timeline-content">
-                        <h2>2020 - Impeachment and electoral defeat</h2>
-                        <p>Trump runs for president a second time in 2020, but is defeated by Joe Biden. He also gets impeached twice for abuse of office and obstruction of justice. </p>
+                        <h2>Present - Second Campaign</h2>
+                        <p>Donald Trump is currently engaged in a political campaign to secure the republican nomination and run for president again next year in 2024</p>
                     </div>
                     <span className="circle"></span>
                     <div className="vl"></div>
                 </Col>
                 <Col className="col-12 col-md-6 timeline-col">
-                    <div className="timeline-content">
-                        <img src="https://user-images.githubusercontent.com/104757716/283453676-82aa38e0-484e-4d99-ad11-0388756f8e06.jpeg" alt=""></img>
+                    
+                    <div className="timeline-content timeline-image-content">
+                        <img src={campaign2} alt="" className="timeline-image"></img>
                     </div>
+                    
                 </Col>
-            </Row> 
+            </Row>
         </Container>
     );
 }; export default Timeline;
