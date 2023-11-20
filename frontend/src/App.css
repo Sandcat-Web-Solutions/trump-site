@@ -50,9 +50,23 @@
     align-items: flex-end;
   }
 
+  .HomepageArticleTitleDiv{
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+  }
+
+
+
+  
+
   .HomepageArticlesRow:nth-of-type(odd) {
     flex-direction: row-reverse;
     background-color: #222;
+  }
+
+  .HomepageArticlesRow:nth-of-type(odd) h4 {
+    color: white;
   }
 
   .HomepageArticlesRow:nth-of-type(odd) p,
@@ -65,33 +79,16 @@
     justify-content: center;
   }
 
-  .HomepageArticleImageCol:hover {
-    transform: scale(1.05);
-    cursor: pointer;
-  }
 
-  .HomepageArticleImageCol {
-    transition: transform 0.5s;
-  }
-
+  
   #HomepageAuthors {
     text-shadow: #bc2f2f;
   }
 
-  .HomepageArticleText:hover {
-    text-decoration: underline;
-    cursor: pointer;
-  }
+ 
 
 
-  .sticky-md {
-    position: sticky;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-  }
+ 
 
   .sticky-md a {
     margin: 5%;
@@ -122,6 +119,7 @@
     .article-title-col {
       height: 50vh;
     }
+    
 
   }
 
@@ -152,15 +150,22 @@
   }
 
   .sticky-md {
+    position: sticky;
+    top: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    padding-top: 20px;
+    height: 100vh;
   }
 
   .article-block {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px 0 10px 0;
+    justify-content: space-around;
+    height: 50%;
+    padding: 10px;
 
   }
 

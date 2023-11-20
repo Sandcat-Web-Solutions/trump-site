@@ -66,7 +66,7 @@ function Timeline() {
                 <Col className="timeline-col col-12 col-md-6">
                     <div className="timeline-content">
                         <h2>1977 - Marriage</h2>
-                        <p>Trump maries his first wife, Ivana Trump, who is a Czechoslovakian model. They will welcome three Children to the world. Donald Jr, Ivanka and  Eric.</p>
+                        <p>Trump maries his first wife, Ivana Trump, who is a Czechoslovakian model. They will welcome three children to the world. Donald Jr, Ivanka and  Eric.</p>
                     </div>
                     <span className="circle"></span>
                     <div className="vl"></div>
