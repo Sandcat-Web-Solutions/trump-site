@@ -4,6 +4,8 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { FaLongArrowAltRight } from "react-icons/fa";
+
 function Article() {
     const Id = useParams();
     const backendURL = "http://localhost:8000";
@@ -144,7 +146,7 @@ function Article() {
 
                         </h4>
 
-                        <img src={article.image_url} alt="" className="article-image"></img>
+                        <img src={article.image_url} alt="" className="inline-article-image"></img>
                         <h4>
                             {article.text}
                             {article.text}
@@ -184,9 +186,10 @@ function Article() {
                     <div className="sticky-md">
                         {randomArticles.map((randomArticle) => (
                             <div className="article-block" key={randomArticle.id}>
-                                <img src={randomArticle.image_url} alt="Random Article" className="article-image" style={{ width: "70%" }} />
+                                <img src={randomArticle.image_url} alt="Random Article" className="article-image"  />
                                 <a href={`/article/${randomArticle.id}`}>
-                                    <h2>{randomArticle.title}</h2>
+                                    <h3> <FaLongArrowAltRight/>{randomArticle.title}  </h3>
+                                   
                                 </a>
                             </div>
                         ))}
