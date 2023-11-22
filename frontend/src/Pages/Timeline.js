@@ -136,7 +136,7 @@ function Timeline() {
                 <Col className="timeline-col col-12 col-md-6">
                     <div className="timeline-content">
                         <h2>2005 - Third Marriage</h2>
-                        <p>Trump marries his third wife Melania, who is 24 years younger than him. They will later have one child Barron William Trump.</p>
+                        <p>Trump marries his third wife Melania, who is 24 years younger than him. They will later have one child; Barron William Trump.</p>
                     </div>
                     <span className="circle"></span>
                     <div className="vl"></div>

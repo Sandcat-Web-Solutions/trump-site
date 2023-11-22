@@ -50,7 +50,7 @@
     align-items: flex-end;
   }
 
-  .HomepageArticleTitleDiv{
+  .HomepageArticleTitleDiv {
     display: flex;
     align-items: baseline;
     gap: 15px;
@@ -58,7 +58,7 @@
 
 
 
-  
+
 
   .HomepageArticlesRow:nth-of-type(odd) {
     flex-direction: row-reverse;
@@ -80,15 +80,15 @@
   }
 
 
-  
+
   #HomepageAuthors {
     text-shadow: #bc2f2f;
   }
 
- 
 
 
- 
+
+
 
   .sticky-md a {
     margin: 5%;
@@ -119,7 +119,7 @@
     .article-title-col {
       height: 50vh;
     }
-    
+
 
   }
 
@@ -156,8 +156,11 @@
     flex-direction: column;
     align-items: center;
     padding-top: 20px;
-    height: 100vh;
+    min-height: 100vh;
+    
   }
+
+  
 
   .article-block {
     display: flex;
@@ -251,7 +254,7 @@
 
   }
 
- 
+
 
 
 
@@ -259,37 +262,38 @@
     position: relative;
     width: 65%;
   }
-  
+
   .timeline-image-content::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 2.3%; 
+    width: 2.3%;
     height: 100%;
     background: linear-gradient(to bottom, #FEFCF9 0%, #FEFCF9 10%, #9B1F1C 10%, #9B1F1C 100%);
     z-index: 1;
   }
-  
+
   .timeline-image-content::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 3%; 
+    height: 3%;
     background: linear-gradient(to left, #FEFCF9 0%, #FEFCF9 10%, #9B1F1C 10%, #9B1F1C 100%);
     z-index: 1;
   }
+
   .timeline-content img {
     width: 100%;
     max-height: 400px;
-    
+
   }
 
-  
 
-  
+
+
   .timeline-content p {
     font-size: 19px;
   }
@@ -297,11 +301,11 @@
 
   @media screen and (max-width: 768px) {
 
-    .timeline-triangle{
+    .timeline-triangle {
       z-index: -1;
     }
-    
-    
+
+
     .vl {
       position: absolute;
       left: 80%;
@@ -331,4 +335,63 @@
     .timeline-row:nth-of-type(odd) {
       flex-direction: column-reverse;
     }
+
+    .comment-section{
+      padding-top: 15%;
+    }
+
+    .article-content{
+      text-align: left;
+    }
+  }
+
+  .comment-section{
+    padding-top: 5%;
+  }
+
+  .single-comment{
+    float: left;
+    display: flex;
+    padding: 10px 10px 10px 0px;
+    align-items: center;
+    
+    
+  }
+
+  .comment-circle{
+    background-color: #150A8D;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    z-index: 100;
+    flex-shrink: 0;
+    margin-right: -10px;
+  }
+  .comment-content{
+    border: 1px solid;
+    padding: 5px 5px 5px 20px;
+    
+  }
+
+  .comment-info{
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .comment-text{
+    width: 70%;
+    height: 40px;
+    border: 3px solid;
+    margin-right: 3%;
+    margin-bottom: 10px;
+  }
+  .comment-button{
+    
+    background-color: black;
+    border: none;
+    color: white;
+    height: 40px;
+    width: 80px;
+        
   }

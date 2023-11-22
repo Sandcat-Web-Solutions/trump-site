@@ -10,12 +10,16 @@ function Article() {
     const [article, setArticle] = useState({});
     const [users, setUsers] = useState([]);
     const [randomArticles, setRandomArticles] = useState([]);
+    const [writingComment, setWritingComment] = useState([]);
+    const [comments, setComments] = useState([]);
 
     useEffect(() => {
         window.scrollTo(0, 0);
         getUsers();
         getArticleById();
         getArticles();
+        getComments();
+
     }, []);
 
 
@@ -67,6 +71,8 @@ function Article() {
         };
     };
 
+
+    //update, can show same article twice
     function getRandomArticles(articles, count, id) {
         const randomArticles = [];
         const availableArticles = articles.filter((article) => article.id !== id);
@@ -85,6 +91,30 @@ function Article() {
 
         setRandomArticles(randomArticles);
     };
+
+
+    async function getComments() {
+        try {
+            const response = await axios.get(`${backendURL}/api/comment/${Id.Id}`);
+            setComments(response.data);
+        } catch (error) {
+            if (error.response) {
+                console.log("errr from server :(");
+            } else if (error.request) {
+                console.log("error getting response from server :(")
+            }
+            else {
+                console.log("error :(");
+            };
+        }
+    }
+
+
+
+    function formatLastUpdatedAt(inputDate) {
+        const date = new Date(inputDate);
+        return date.toLocaleString();
+    }
 
     return (
         <Container fluid>
@@ -128,20 +158,42 @@ function Article() {
                         </h4>
 
                     </div>
+                    <div className="comment-section">
+                    <hr style={{ width: "100%" }} />
+                        <input type="text" value={writingComment} onChange={(e) => setWritingComment(e.target.value)} className="comment-text" placeholder="write comment"></input>
+                        <input type="button" value="Post" className="comment-button"></input>
+
+                        {comments.map((comment) => (
+                            
+                            <div key={comment.id} className="single-comment">
+                                <div className="comment-circle"></div>
+                                <div className="comment-content">
+                                    
+                                <h5>{comment.text}</h5>
+                                <div className="comment-info">
+                                <p>{users.find((user) => user.id === comment.fk_user_id)?.username}</p>
+                                <p>{formatLastUpdatedAt(comment.created_at)}</p>
+                                </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                    
                 </Col>
                 <Col className="col-12 col-md-4" >
                     <div className="sticky-md">
                         {randomArticles.map((randomArticle) => (
                             <div className="article-block" key={randomArticle.id}>
                                 <img src={randomArticle.image_url} alt="Random Article" className="article-image" style={{ width: "70%" }} />
-                                <Link to={`/article/${randomArticle.id}`}>
+                                <a href={`/article/${randomArticle.id}`}>
                                     <h2>{randomArticle.title}</h2>
-                                </Link>
+                                </a>
                             </div>
                         ))}
                     </div>
                 </Col>
             </Row>
+                       
         </Container>
     );
 }; export default Article;

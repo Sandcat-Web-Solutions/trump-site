@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { FaLongArrowAltRight } from "react-icons/fa";
 
 
 
@@ -103,9 +103,6 @@ function Home() {
     return date.toLocaleString();
   }
 
-  function handleClick(id) {
-    window.location.href = `/article/${id}`;
-  };
 
   async function getArticles() {
     try {
@@ -162,7 +159,7 @@ function Home() {
       </svg>
       {
         articles.map((article) => (
-          <Row key={article.id} className="HomepageArticlesRow" onClick={() => handleClick(article.id)} >
+          <Row key={article.id} className="HomepageArticlesRow"  >
             <Col className="col-12 col-md-6 HomepageArticleCol" style={{ paddingLeft: "4%" }}>
               <div>
                 <div className="HomepageArticleTitleDiv">
@@ -174,8 +171,8 @@ function Home() {
 
 
               <p className="HomepageArticleText">{article.text}</p>
-              
-              <Link to={`/article/${article.id}`} style={{textDecoration: "none", color: "#bc2f2f", fontSize: "18px"}}>to article</Link>
+
+              <a href={`/article/${article.id}`} style={{ textDecoration: "none", color: "#bc2f2f", fontSize: "18px" }} > to article <FaLongArrowAltRight /></a>
 
               <p>{formatLastUpdatedAt(article.last_updated_at)}</p>
 
@@ -185,7 +182,7 @@ function Home() {
             </Col>
           </Row>
         ))
-      }
+      };
     </Container>
   );
 }
