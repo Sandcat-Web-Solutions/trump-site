@@ -73,26 +73,27 @@ function Article() {
         };
     };
 
-
-    //update, can show same article twice
     function getRandomArticles(articles, count, id) {
-        const randomArticles = [];
         const availableArticles = articles.filter((article) => article.id !== id);
         const articleCount = availableArticles.length;
-
+        const randomArticles = [];
+    
         if (count >= articleCount) {
-            return availableArticles;
+            setRandomArticles(availableArticles);
+            return;
         }
-
+    
         while (randomArticles.length < count) {
             const randomIndex = Math.floor(Math.random() * articleCount);
             const randomArticle = availableArticles[randomIndex];
-
-            randomArticles.push(randomArticle);
-        };
-
+    
+            if (!randomArticles.includes(randomArticle)) {
+                randomArticles.push(randomArticle);
+            }
+        }
+    
         setRandomArticles(randomArticles);
-    };
+    }
 
 
     async function getComments() {
@@ -125,7 +126,7 @@ function Article() {
                     <img src={article.image_url} alt="Cat" />
                 </Col>
                 <Col className="col-12 col-md-6 article-title-col">
-                    <h1>Title</h1>
+                    <h1>{article.title}</h1>
                 </Col>
             </Row>
             <Row className="d-flex">
@@ -188,8 +189,7 @@ function Article() {
                             <div className="article-block" key={randomArticle.id}>
                                 <img src={randomArticle.image_url} alt="Random Article" className="article-image"  />
                                 <a href={`/article/${randomArticle.id}`}>
-                                    <h3> <FaLongArrowAltRight/>{randomArticle.title}  </h3>
-                                   
+                                    <h3> <FaLongArrowAltRight/>{randomArticle.title}  </h3> 
                                 </a>
                             </div>
                         ))}
