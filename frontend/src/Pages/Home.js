@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import Header from "../Components/Header";
+
 
 
 
@@ -60,7 +62,9 @@ function Home() {
   return (
     <Container fluid>
       <Row id="HomepageRow">
+      <Header/>
         <div>
+          
           <h1>Trump</h1>
 
           <h2 >Luc Zwyssig Peter Schreivogel Tarek Schütz Sujan Saravana</h2>

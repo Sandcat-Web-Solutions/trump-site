@@ -1,7 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import "../App.css";
 import { useParams } from "react-router";
-import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { FaLongArrowAltRight } from "react-icons/fa";
@@ -53,14 +52,14 @@ function Article() {
             }
             else {
                 console.log("error :(");
-            }
+            };
         };
     };
 
     async function getArticles() {
         try {
             const response = await axios.get(`${backendURL}/api/articles`);
-            await getRandomArticles(response.data, 2, article.id);
+            getRandomArticles(response.data, 2, article.id);
         } catch (error) {
             if (error.response) {
                 console.log("errr from server :(");
@@ -116,7 +115,8 @@ function Article() {
 
     function formatLastUpdatedAt(inputDate) {
         const date = new Date(inputDate);
-        return date.toLocaleString();
+        const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+        return date.toLocaleDateString(undefined, options);
     }
 
     return (
@@ -169,7 +169,6 @@ function Article() {
                         {comments.map((comment) => (
                             
                             <div key={comment.id} className="single-comment">
-                                <div className="comment-circle"></div>
                                 <div className="comment-content">
                                     
                                 <h5>{comment.text}</h5>
