@@ -31,7 +31,6 @@
     flex-wrap: wrap;
     color: rgb(68, 68, 136);
     font-size: 19px;
-    text-decoration: underline 2px black;
     
   }
   
@@ -43,6 +42,47 @@
     text-decoration: none;
     font-size: 19px;
   }
+
+  .LoginContainer{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #20211f 0%, #20211f 30%, white 30%, white 100%  );
+    position: relative;
+  }
+
+  .LoginDiv{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    width: fit-content;
+    height: fit-content;
+    padding: 5% 5% 8% 5%;
+    border-radius: 10px;
+    background-color: rgb(217, 215, 215);
+  }
+
+  .LoginDiv input[type="text"], input[type="password"]{
+    border: none;
+    box-sizing: border-box;
+    border-bottom: 2px solid black;
+    background-color: rgb(217, 215, 215);
+    outline: none;
+  }
+  
+
+  .LoginDiv input[type="button"]{
+    border: none;
+    width: 100%;
+  }
+
+  .SwitchLogin:hover{
+    cursor: pointer;
+  }
+
   #HomepageRow {
     background-image: url("./Images/TrumpHomePage.jpg");
     background-size: contain;

@@ -18,8 +18,9 @@ function Home() {
 
   function formatLastUpdatedAt(inputDate) {
     const date = new Date(inputDate);
-    return date.toLocaleString();
-  }
+    const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+    return date.toLocaleDateString(undefined, options);
+}
 
 
   async function getArticles() {
