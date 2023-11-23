@@ -1,4 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
+import Header from "../Components/Header";
 import trump from "../Images/TrumpYoung.png";
 import university from "../Images/University.png";
 import ivana from "../Images/Ivana.png";
@@ -18,6 +19,7 @@ function Timeline() {
     return (
         <Container fluid className="timeline-container">
             <Row className="timeline-title">
+                <Header/>
                 <div>
                     <h1>The Timeline</h1>
                     <p>Trump through the years</p>

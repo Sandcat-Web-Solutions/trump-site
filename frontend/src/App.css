@@ -3,19 +3,46 @@
     background-color: black;
   }
 
-  .Header{
-    position: absolute;
-    top: 10px;
-    left: 4%;
+  .Header {
     display: flex;
-    gap: 5%;    
+    gap: 20px;
+    width: min-content;
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    z-index: 1000;
+    padding: 10px;
+    width: fit-content;
   }
 
-  .Header a {
+  .ArticleHeader{
+    position: absolute;
+    flex-direction: row-reverse;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 5%;
+  }
+  
+  
+
+  .HeaderLink {
     text-decoration: none;
     flex-wrap: wrap;
+    color: rgb(68, 68, 136);
+    font-size: 19px;
+    text-decoration: underline 2px black;
+    
   }
-
+  
+  .ActiveHeaderLink {
+    background-color: #d6d1e4;
+    color: rgb(68, 68, 136);
+    padding: 2px 8px 2px 8px;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 19px;
+  }
   #HomepageRow {
     background-image: url("./Images/TrumpHomePage.jpg");
     background-size: contain;
@@ -29,11 +56,14 @@
     justify-content: flex-end;
     padding-bottom: 5%;
     padding-left: 3%;
+    position: relative;
+    overflow-x: hidden;
   }
 
   #HomepageRow h1 {
     font-size: 100px;
     color: #c22822;
+    
 
   }
 
@@ -99,10 +129,6 @@
   }
 
 
-
-
-
-
   .sticky-md a {
     margin: 5%;
     color: inherit;
@@ -117,15 +143,15 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     height: 100vh;
+    position: relative;
 
   }
 
   .article-title-col h1 {
     color: white;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 3%;
   }
 
   @media screen and (max-width: 768px) {
@@ -171,18 +197,20 @@
   .sticky-md {
     position: sticky;
     top: 0;
-    min-height: 100vh;
-    overflow: auto;
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    height: 100vh;
   }
-
-  
 
   .article-block {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px 10px 0 10px;
+    justify-content: space-around;
+    height: 50%;
+    padding: 10px;
 
   }
 
@@ -205,12 +233,14 @@
     padding-bottom: 5%;
     padding-left: 3%;
     position: relative;
+    overflow-x: hidden;
   }
 
 
   .timeline-title h1 {
     font-size: 70px;
     color: rgb(241, 235, 235);
+    
   }
 
   .timeline-title p {
@@ -274,7 +304,7 @@
 
   .timeline-content {
     position: relative;
-    width: 65%;
+    width: 62%;
   }
 
   .timeline-image-content::before {
@@ -315,6 +345,12 @@
 
   @media screen and (max-width: 768px) {
 
+    
+
+    .timeline-image-content::after{
+      width: 80%;
+    }
+
     .timeline-triangle {
       z-index: -1;
     }
@@ -323,7 +359,6 @@
     .vl {
       position: absolute;
       left: 80%;
-      margin-left: -3px;
       top: 0;
     }
 
@@ -366,6 +401,7 @@
     .comment-content{
       border-radius: 5px;
     }
+
 
     
   }

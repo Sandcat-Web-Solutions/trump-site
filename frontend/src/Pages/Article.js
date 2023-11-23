@@ -1,9 +1,10 @@
 import { Container, Row, Col } from "react-bootstrap";
 import "../App.css";
-import { useParams } from "react-router";
+import { useParams, useLocation } from "react-router";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import Header from "../Components/Header";
 
 function Article() {
     const Id = useParams();
@@ -13,6 +14,7 @@ function Article() {
     const [randomArticles, setRandomArticles] = useState([]);
     const [writingComment, setWritingComment] = useState([]);
     const [comments, setComments] = useState([]);
+    const location = useLocation();
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -22,6 +24,8 @@ function Article() {
         getComments();
 
     }, []);
+
+
 
 
     async function getArticleById() {
@@ -76,21 +80,21 @@ function Article() {
         const availableArticles = articles.filter((article) => article.id !== id);
         const articleCount = availableArticles.length;
         const randomArticles = [];
-    
+
         if (count >= articleCount) {
             setRandomArticles(availableArticles);
             return;
         }
-    
+
         while (randomArticles.length < count) {
             const randomIndex = Math.floor(Math.random() * articleCount);
             const randomArticle = availableArticles[randomIndex];
-    
+
             if (!randomArticles.includes(randomArticle)) {
                 randomArticles.push(randomArticle);
             }
         }
-    
+
         setRandomArticles(randomArticles);
     }
 
@@ -122,12 +126,16 @@ function Article() {
     return (
         <Container fluid>
             <Row id="article-title-row" style={{ marginLeft: "-12px", marginRight: "-12px" }}>
+
+                <Col className="col-12 col-md-6 article-title-col ar">
+
+                    <Header/>
+                    <h1>{article.title}</h1>
+                </Col>
                 <Col className="col-12 col-md-6 article-title-col" >
                     <img src={article.image_url} alt="Cat" />
                 </Col>
-                <Col className="col-12 col-md-6 article-title-col">
-                    <h1>{article.title}</h1>
-                </Col>
+
             </Row>
             <Row className="d-flex">
                 <Col className="col-12 col-md-8">
@@ -162,40 +170,40 @@ function Article() {
 
                     </div>
                     <div className="comment-section">
-                    <hr style={{ width: "100%" }} />
+                        <hr style={{ width: "100%" }} />
                         <input type="text" value={writingComment} onChange={(e) => setWritingComment(e.target.value)} className="comment-text" placeholder="write comment"></input>
                         <input type="button" value="Post" className="comment-button"></input>
 
                         {comments.map((comment) => (
-                            
+
                             <div key={comment.id} className="single-comment">
                                 <div className="comment-content">
-                                    
-                                <h5>{comment.text}</h5>
-                                <div className="comment-info">
-                                <p>{users.find((user) => user.id === comment.fk_user_id)?.username}</p>
-                                <p>{formatLastUpdatedAt(comment.created_at)}</p>
-                                </div>
+
+                                    <h5>{comment.text}</h5>
+                                    <div className="comment-info">
+                                        <p>{users.find((user) => user.id === comment.fk_user_id)?.username}</p>
+                                        <p>{formatLastUpdatedAt(comment.created_at)}</p>
+                                    </div>
                                 </div>
                             </div>
                         ))}
                     </div>
-                    
+
                 </Col>
                 <Col className="col-12 col-md-4" >
                     <div className="sticky-md">
                         {randomArticles.map((randomArticle) => (
                             <div className="article-block" key={randomArticle.id}>
-                                <img src={randomArticle.image_url} alt="Random Article" className="article-image"  />
+                                <img src={randomArticle.image_url} alt="Random Article" className="article-image" />
                                 <a href={`/article/${randomArticle.id}`}>
-                                    <h3> <FaLongArrowAltRight/>{randomArticle.title}  </h3> 
+                                    <h3> <FaLongArrowAltRight />{randomArticle.title}  </h3>
                                 </a>
                             </div>
                         ))}
                     </div>
                 </Col>
             </Row>
-                       
+
         </Container>
     );
 }; export default Article;

@@ -11,11 +11,8 @@ function Home() {
 
   const backendURL = "http://localhost:8000";
   const [articles, setArticles] = useState([]);
-  const [users, setUsers] = useState([]);
-
   useEffect(() => {
     getArticles();
-    getUsers();
   }, []);
 
 
@@ -41,30 +38,16 @@ function Home() {
     };
   };
 
-  async function getUsers() {
-    try {
-      const response = await axios.get(`${backendURL}/api/users`);
-      setUsers(response.data);
-    } catch (error) {
-      if (error.response) {
-        console.log("errr from server :(");
-      } else if (error.request) {
-        console.log("error getting response from server :(")
-      }
-      else {
-        console.log("error :(");
-      }
-    };
-  };
+
 
 
 
   return (
     <Container fluid>
       <Row id="HomepageRow">
-      <Header/>
+        <Header />
         <div>
-          
+
           <h1>Trump</h1>
 
           <h2 >Luc Zwyssig Peter Schreivogel Tarek Schütz Sujan Saravana</h2>
@@ -88,17 +71,16 @@ function Home() {
                 <div className="HomepageArticleTitleDiv">
                   <h2>{article.title}</h2>
 
-                  <h4>by {users.find(user => user.id === article.fk_user_id)?.username}</h4>
                 </div>
               </div>
 
 
               <p className="HomepageArticleText">{article.text}</p>
 
-              <a href={`/article/${article.id}`} style={{ textDecoration: "none", color: "#bc2f2f", fontSize: "18px" }} > to article <FaLongArrowAltRight /></a>
-
-              <p>{formatLastUpdatedAt(article.last_updated_at)}</p>
-
+              <div>
+                <a href={`/article/${article.id}`} style={{ textDecoration: "none", color: "#bc2f2f", fontSize: "18px" }} > to article <FaLongArrowAltRight /></a>
+                <p>{formatLastUpdatedAt(article.last_updated_at)}</p>
+              </div>
             </Col>
             <Col className="col-12 col-md-6 HomepageArticleImageCol">
               <img src={article.image_url} alt="Cat" style={{ width: "90%", borderRadius: "5px" }} />
