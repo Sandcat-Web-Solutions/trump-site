@@ -1,6 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import "../App.css";
-import { useParams, useLocation } from "react-router";
+import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { FaLongArrowAltRight } from "react-icons/fa";
@@ -14,7 +14,6 @@ function Article() {
     const [randomArticles, setRandomArticles] = useState([]);
     const [writingComment, setWritingComment] = useState([]);
     const [comments, setComments] = useState([]);
-    const location = useLocation();
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -24,6 +23,8 @@ function Article() {
         getComments();
 
     }, []);
+
+
 
 
 
@@ -112,6 +113,32 @@ function Article() {
             else {
                 console.log("error :(");
             };
+        };
+    };
+
+    async function postComment() {
+        try {
+            const response = await axios.post(
+                `${backendURL}/api/comment/${Id.Id}`,
+                writingComment,
+                {
+                    headers: {
+                        Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
+            setWritingComment("");
+            getComments();
+            console.log("Comment posted successfully:", response.data);
+        } catch (error) {
+            if (error.response) {
+                console.log("Error from server:", error.response.data);
+            } else if (error.request) {
+                console.log("Error getting response from server");
+            } else {
+                console.log("Error:", error.message);
+            }
         }
     }
 
@@ -129,7 +156,7 @@ function Article() {
 
                 <Col className="col-12 col-md-6 article-title-col ar">
 
-                    <Header/>
+                    <Header />
                     <h1>{article.title}</h1>
                 </Col>
                 <Col className="col-12 col-md-6 article-title-col" >
@@ -172,34 +199,40 @@ function Article() {
                     <div className="comment-section">
                         <hr style={{ width: "100%" }} />
                         <input type="text" value={writingComment} onChange={(e) => setWritingComment(e.target.value)} className="comment-text" placeholder="write comment"></input>
-                        <input type="button" value="Post" className="comment-button"></input>
+                        <input type="button" value="Post" className="comment-button" onClick={postComment}></input>
+                        <div className="comments">
+                            {comments.map((comment) => (
 
-                        {comments.map((comment) => (
+                                <div key={comment.id} className="single-comment">
+                                    <div className="comment-content">
 
-                            <div key={comment.id} className="single-comment">
-                                <div className="comment-content">
-
-                                    <h5>{comment.text}</h5>
-                                    <div className="comment-info">
-                                        <p>{users.find((user) => user.id === comment.fk_user_id)?.username}</p>
-                                        <p>{formatLastUpdatedAt(comment.created_at)}</p>
+                                        <h5>{comment.text}</h5>
+                                        <div className="comment-info">
+                                            <p>{users.find((user) => user.id === comment.fk_user_id)?.username}</p>
+                                            <p>{formatLastUpdatedAt(comment.created_at)}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
 
                 </Col>
                 <Col className="col-12 col-md-4" >
                     <div className="sticky-md">
+                        <h2 style={{ textDecoration: "underline" }}>Further articles:</h2>
+                        <div>
                         {randomArticles.map((randomArticle) => (
-                            <div className="article-block" key={randomArticle.id}>
-                                <img src={randomArticle.image_url} alt="Random Article" className="article-image" />
+                            <div style={{width: "90%"}}>
+
                                 <a href={`/article/${randomArticle.id}`}>
                                     <h3> <FaLongArrowAltRight />{randomArticle.title}  </h3>
                                 </a>
+
+                                <p>{randomArticle.text.slice(0, 100)}...</p>
                             </div>
                         ))}
+                        </div>
                     </div>
                 </Col>
             </Row>
