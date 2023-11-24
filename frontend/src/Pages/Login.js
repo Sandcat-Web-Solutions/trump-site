@@ -2,11 +2,15 @@ import { useState } from "react"
 import { Container } from "react-bootstrap";
 import Header from "../Components/Header";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 function Login() {
     const backendURL = "http://localhost:8000";
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
+    
+    const navigate = useNavigate();
+    
     async function handleLogin() {
         try {
             const response = await axios.post(`${backendURL}/api/login`, {
@@ -16,6 +20,7 @@ function Login() {
             const token = response.data;
 
             sessionStorage.setItem("token", token);
+            navigate(-1);
         } catch (error) {
             if (error.response) {
                 console.log("errr from server :(");

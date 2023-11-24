@@ -1,12 +1,13 @@
 import { useState } from "react"
 import { Container } from "react-bootstrap";
+import Header from "../Components/Header";
 
 function Register(){
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     return(
         <Container fluid className="LoginContainer">
-            
+            <Header/>
        <div className="LoginDiv">
        <h1>Register</h1>
             <input type="text" placeholder="username" value={username} onChange={(e) => setUsername(e.target.value)}></input>

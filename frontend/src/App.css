@@ -48,7 +48,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(to right, #20211f 0%, #20211f 30%, white 30%, white 100%  );
+    background: linear-gradient(to bottom right , #20211f 0%, #20211f 30%, white 30%, white 70%,  #20211f 70%, #20211f 100%  );
     position: relative;
   }
 
@@ -139,6 +139,15 @@
     gap: 15px;
   }
 
+  .ToArticleLink{
+    text-decoration: none;
+    color: #bc2f2f;
+    font-size: 18px;
+    
+  }
+
+  
+
 
 
 
@@ -174,8 +183,12 @@
     color: inherit;
   }
 
+  .Toast a{
+    color: black ;
+  }
+
   #article-title-row {
-    background-color: #303030;
+    background-color: #292929;
     overflow: hidden;
   }
 
@@ -239,8 +252,9 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-evenly;
-    gap: 40px;
+    gap: 0px;
     padding-top: 10px;
+    padding-left: 10px;
     height: 100vh;
     overflow: auto;
   }

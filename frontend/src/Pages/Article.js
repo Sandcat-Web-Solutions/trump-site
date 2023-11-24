@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import Header from "../Components/Header";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Article() {
     const Id = useParams();
@@ -16,7 +18,6 @@ function Article() {
     const [comments, setComments] = useState([]);
 
     useEffect(() => {
-        window.scrollTo(0, 0);
         getUsers();
         getArticleById();
         getArticles();
@@ -118,29 +119,49 @@ function Article() {
 
     async function postComment() {
         try {
+            const token = sessionStorage.getItem("token");
+
+            if (!token) {
+                notify();
+                return;
+            }
             const response = await axios.post(
                 `${backendURL}/api/comment/${Id.Id}`,
                 writingComment,
                 {
                     headers: {
-                        Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+                        Authorization: `Bearer ${token}`,
                         "Content-Type": "application/json",
                     },
                 }
             );
             setWritingComment("");
             getComments();
-            console.log("Comment posted successfully:", response.data);
         } catch (error) {
-            if (error.response) {
-                console.log("Error from server:", error.response.data);
-            } else if (error.request) {
-                console.log("Error getting response from server");
-            } else {
-                console.log("Error:", error.message);
+            if (error.response && error.response.status === 401) {
+                console.log("response error");
             }
-        }
-    }
+            if (error.message === "Network Error") { //axios is doing weird this is only option
+                notify();
+            }
+        };
+
+    };
+
+    const notify = () => {
+        toast.error(
+          <div className="Toast">
+            <p>Login to post a comment!</p>
+            <p>
+              <a href="/login" >Login Here</a>
+            </p>
+          </div>,
+          {
+            position: toast.POSITION.TOP_CENTER,
+          }
+        );
+      };
+
 
 
 
@@ -152,9 +173,10 @@ function Article() {
 
     return (
         <Container fluid>
+            <ToastContainer/>
             <Row id="article-title-row" style={{ marginLeft: "-12px", marginRight: "-12px" }}>
 
-                <Col className="col-12 col-md-6 article-title-col ar">
+                <Col className="col-12 col-md-6 article-title-col" >
 
                     <Header />
                     <h1>{article.title}</h1>
@@ -222,16 +244,16 @@ function Article() {
                     <div className="sticky-md">
                         <h2 style={{ textDecoration: "underline" }}>Further articles:</h2>
                         <div>
-                        {randomArticles.map((randomArticle) => (
-                            <div style={{width: "90%"}}>
+                            {randomArticles.map((randomArticle) => (
+                                <div style={{ width: "90%" }} key={randomArticle.id}>
 
-                                <a href={`/article/${randomArticle.id}`}>
-                                    <h3> <FaLongArrowAltRight />{randomArticle.title}  </h3>
-                                </a>
+                                    <a href={`/article/${randomArticle.id}`}>
+                                        <h3> <FaLongArrowAltRight />{randomArticle.title}  </h3>
+                                    </a>
 
-                                <p>{randomArticle.text.slice(0, 100)}...</p>
-                            </div>
-                        ))}
+                                    <p>{randomArticle.text.slice(0, 100)}...</p>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </Col>

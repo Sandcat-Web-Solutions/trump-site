@@ -79,7 +79,7 @@ function Home() {
               <p className="HomepageArticleText">{article.text}</p>
 
               <div>
-                <a href={`/article/${article.id}`} style={{ textDecoration: "none", color: "#bc2f2f", fontSize: "18px" }} > to article <FaLongArrowAltRight /></a>
+                <a href={`/article/${article.id}`} className="ToArticleLink" > to article <FaLongArrowAltRight /></a>
                 <p>{formatLastUpdatedAt(article.last_updated_at)}</p>
               </div>
             </Col>
