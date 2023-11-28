@@ -3,6 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import Header from "../Components/Header";
+import Footer from "../Components/Footer";
 
 function Home() {
 
@@ -35,7 +36,7 @@ function Home() {
   };
 
   return (
-    <Container fluid>
+    <Container fluid className="HomeContainer">
       <Row id="HomepageRow">
         <Header />
         <div>
@@ -74,9 +75,11 @@ function Home() {
             <Col className="col-12 col-md-6 HomepageArticleImageCol">
               <img src={article.image_url} alt="Cat" style={{ width: "90%", borderRadius: "5px" }} />
             </Col>
+            
           </Row>
         ))
-      };
+      }
+      <Footer/>
     </Container>
   );
 }

@@ -14,6 +14,7 @@ import helicopter from "../Images/helicopter.png";
 import korea from "../Images/korea.png";
 import impeachment from "../Images/impeachment.png";
 import campaign2 from "../Images/2024.png";
+import Footer from "../Components/Footer";
 
 function Timeline() {
     return (
@@ -241,6 +242,7 @@ function Timeline() {
                     
                 </Col>
             </Row>
+            <Footer/>
         </Container>
     );
 }; export default Timeline;

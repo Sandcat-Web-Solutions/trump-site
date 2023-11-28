@@ -7,6 +7,7 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 import Header from "../Components/Header";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from "../Components/Footer";
 
 function Article() {
     const Id = useParams();
@@ -207,9 +208,11 @@ const artText = "The former president of the United States, Donald John Trump, \
                         </h4>
                     </div>
                     <div className="comment-section">
+                        <div style={{marginBottom: "10px"}}>
                         <hr style={{ width: "100%" }} />
                         <input type="text" value={writingComment} onChange={(e) => setWritingComment(e.target.value)} className="comment-text" placeholder="write comment"></input>
                         <input type="button" value="Post" className="comment-button" onClick={postComment}></input>
+                        </div>
                         <div className="comments">
                             {comments.map((comment) => (
 
@@ -245,6 +248,7 @@ const artText = "The former president of the United States, Donald John Trump, \
                         </div>
                     </div>
                 </Col>
+                <Footer/>
             </Row>
 
         </Container>

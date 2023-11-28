@@ -1,6 +1,7 @@
   html,
   body {
     background-color: black;
+    
   }
 
   .Header {
@@ -81,6 +82,10 @@
 
   .SwitchLogin:hover{
     cursor: pointer;
+  }
+
+  .HomeContainer{
+    background-color: black;
   }
 
   #HomepageRow {
@@ -262,8 +267,9 @@
 
   .timeline-container {
 
-    background-color: #fefcf9;
+    background-color: black;
     min-height: 100vh;
+    
   }
 
   .timeline-title {
@@ -333,6 +339,7 @@
     position: relative;
     display: flex;
     padding-bottom: 15%;
+    background-color: #fefcf9;
 
   }
 
@@ -512,6 +519,46 @@
     color: white;
     height: 40px;
     width: 80px;        
+  }
+
+  .footer{
+    background-color: black;
+    width: 100%;
+    
+    
+  }
+
+  .footer-row{
+    border-bottom: bisque solid;
+    padding-bottom: 5px;
+  }
+
+  .footer-title{
+    color: white;
+    padding-left: 10px;
+    padding-top: 10px;
+  }
+
+  .text{
+    margin-top: 13px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:medium;
+  }
+
+  .text a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .text a:hover {
+    color: red;
+  }
+
+  .last-text{
+    text-align: center;
+    padding-top: 10px;
+    color: rgb(196, 196, 196);
   }
 
 
