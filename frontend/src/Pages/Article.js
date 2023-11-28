@@ -1,7 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import "../App.css";
 import { useParams } from "react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import Header from "../Components/Header";
@@ -24,7 +24,6 @@ function Article() {
         getComments();
 
     }, []);
-
 
 
 
@@ -150,18 +149,19 @@ function Article() {
 
     const notify = () => {
         toast.error(
-          <div className="Toast">
-            <p>Login to post a comment!</p>
-            <p>
-              <a href="/login" >Login Here</a>
-            </p>
-          </div>,
-          {
-            position: toast.POSITION.TOP_CENTER,
-          }
+            <div className="Toast">
+                <p>Login to post a comment!</p>
+                <p>
+                    <a href="/login" >Login Here</a>
+                </p>
+            </div>,
+            {
+                position: toast.POSITION.TOP_CENTER,
+            }
         );
-      };
+    };
 
+const artText = "The former president of the United States, Donald John Trump, \n has been impeached twice but was also acquitted for the  second time last January. In US-law, the process of impeachment occurs when the House of Representatives, comprised of members from every state, decides to charge the current president or vice president for alleged misconduct. Since Trump had already left office, this was also the first time an impeachment trial has been held against a former president. Donald Trump is, until now, the only US president to be impeached twice. The other presidents were Andrew Johnson in 1868 and Bill Clinton in 1998. This time around, Trump has been charged with incitement of insurrection. The reason for the impeachment was, on the one hand, the Capitol attack on January 6, about a month beforehand. Thousands of supporters of the former president felt an urge to rebel against the results of the presidential election, which Trump lost. They also were shouting “hang Mike Pence”, since he was overseeing Biden’s election process. A total of five people died during the events, and over 130 were injured. This was the first time the Capitol had ever been breached by rioters. The other reason for his impeachment was a phone call he had had with Secretary of State Brad Raffensperger (oversees elections in the state of Georgia). During this phone call, he pressured Raffensperger to investigate Georgia’s election results, even after being told multiple times that the results had been correct. Ultimately however, Trump was acquitted in a 57-43 vote, 10 short of the needed two-thirds to have him convicted. Today Trump is currently running for president again, which would not have been possible had he been convicted. "
 
 
 
@@ -169,11 +169,19 @@ function Article() {
         const date = new Date(inputDate);
         const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
         return date.toLocaleDateString(undefined, options);
-    }
+    };
+    function renderParagraph(text) {
+        return text.split("\n").map((paragraph, index) => (
+          <p key={index}>{paragraph}</p>
+        ));
+      }
+    
+
+
 
     return (
         <Container fluid>
-            <ToastContainer/>
+            <ToastContainer /> {/* possibly change appearance */}
             <Row id="article-title-row" style={{ marginLeft: "-12px", marginRight: "-12px" }}>
 
                 <Col className="col-12 col-md-6 article-title-col" >
@@ -191,32 +199,12 @@ function Article() {
                     <div className="article-content">
                         <h4>written by {users.find(user => user.id === article.fk_user_id)?.username}</h4>
                         <hr style={{ width: "100%" }} />
-                        <h4>
-                            {article.text}
-                            {article.text}
-                            {article.text}
-                            {article.text}
-                            {article.text}
-                            {article.text}
-                            {article.text}
-                            {article.text}
-                            {article.text}
-
-                        </h4>
+                        <h4>{article.text && renderParagraph(article.text)}</h4>    
 
                         <img src={article.image_url} alt="" className="inline-article-image"></img>
                         <h4>
-                            {article.text}
-                            {article.text}
-                            {article.text}
-                            {article.text}
-                            {article.text}
-                            {article.text}
-                            {article.text}
-                            {article.text}
-                            {article.text}
+                                  
                         </h4>
-
                     </div>
                     <div className="comment-section">
                         <hr style={{ width: "100%" }} />

@@ -4,9 +4,6 @@ import axios from "axios";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import Header from "../Components/Header";
 
-
-
-
 function Home() {
 
   const backendURL = "http://localhost:8000";
@@ -15,13 +12,11 @@ function Home() {
     getArticles();
   }, []);
 
-
   function formatLastUpdatedAt(inputDate) {
     const date = new Date(inputDate);
     const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
     return date.toLocaleDateString(undefined, options);
 }
-
 
   async function getArticles() {
     try {
@@ -38,10 +33,6 @@ function Home() {
       }
     };
   };
-
-
-
-
 
   return (
     <Container fluid>
@@ -74,10 +65,7 @@ function Home() {
 
                 </div>
               </div>
-
-
-              <p className="HomepageArticleText">{article.text}</p>
-
+              <p className="HomepageArtictrleText">{article.text.slice(0, 300)}...</p>
               <div>
                 <a href={`/article/${article.id}`} className="ToArticleLink" > to article <FaLongArrowAltRight /></a>
                 <p>{formatLastUpdatedAt(article.last_updated_at)}</p>

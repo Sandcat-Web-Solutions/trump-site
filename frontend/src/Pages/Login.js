@@ -2,14 +2,15 @@ import { useState } from "react"
 import { Container } from "react-bootstrap";
 import Header from "../Components/Header";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+
 function Login() {
     const backendURL = "http://localhost:8000";
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
     
-    const navigate = useNavigate();
+    
     
     async function handleLogin() {
         try {
@@ -20,20 +21,48 @@ function Login() {
             const token = response.data;
 
             sessionStorage.setItem("token", token);
-            navigate(-1);
+            window.history.back()
+            
         } catch (error) {
             if (error.response) {
-                console.log("errr from server :(");
+                if(error.response && error.response.status === 401){
+                    unauth();
+                    setPassword("");
+                }
             } else if (error.request) {
-                console.log("error getting response from server :(")
+                Othererror();
             }
             else {
                 console.log("error :(");
             };
         };
     };
+
+    const unauth = () => {
+        toast.error(
+            <div className="Toast">
+                <p>Unauthorized</p>
+            </div>,
+            {
+                position: toast.POSITION.TOP_CENTER,
+            }
+        );
+    };
+    const Othererror = () => {
+        toast.error(
+            <div className="Toast">
+                <p>Login failed, try again</p>
+            </div>,
+            {
+                position: toast.POSITION.TOP_CENTER,
+            }
+        );
+    };
+
+
     return (
         <Container fluid className="LoginContainer">
+            <ToastContainer /> 
             <Header />
             <div className="LoginDiv">
                 <h1>Login</h1>
