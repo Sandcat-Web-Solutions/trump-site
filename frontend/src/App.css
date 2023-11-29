@@ -1,0 +1,570 @@
+    html,
+    body {
+      background-color: black;
+      
+    }
+
+    .Header {
+      display: flex;
+      gap: 20px;
+      width: min-content;
+      position: absolute;
+      left: 10px;
+      top: 8px;
+      z-index: 1000;
+      padding: 10px;
+      width: fit-content;
+    }
+
+    .ArticleHeader{
+      position: absolute;
+      flex-direction: row-reverse;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      gap: 5%;
+    }
+    
+    
+
+    .HeaderLink {
+      text-decoration: none;
+      flex-wrap: wrap;
+      color: rgb(68, 68, 136);
+      font-size: 19px;
+      
+    }
+    
+    .ActiveHeaderLink {
+      background-color: #d6d1e4;
+      color: rgb(68, 68, 136);
+      padding: 2px 8px 2px 8px;
+      border-radius: 2px;
+      text-decoration: none;
+      font-size: 19px;
+    }
+
+    .LoginContainer{
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(to bottom right , #20211f 0%, #20211f 30%, white 30%, white 70%,  #20211f 70%, #20211f 100%  );
+      position: relative;
+    }
+
+    .LoginDiv{
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      gap: 30px;
+      width: fit-content;
+      height: fit-content;
+      padding: 5% 5% 8% 5%;
+      border-radius: 10px;
+      background-color: rgb(217, 215, 215);
+    }
+
+    .LoginDiv input[type="text"], input[type="password"]{
+      border: none;
+      box-sizing: border-box;
+      border-bottom: 2px solid black;
+      background-color: rgb(217, 215, 215);
+      outline: none;
+    }
+    
+
+    .LoginDiv input[type="button"]{
+      border: none;
+      width: 100%;
+    }
+
+    .SwitchLogin:hover{
+      cursor: pointer;
+    }
+
+    .HomeContainer{
+      background-color: black;
+    }
+
+    #HomepageRow {
+      background-image: url("./Images/TrumpHomePage.jpg");
+      background-size: contain;
+      background-color: black;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: flex-end;
+      padding-bottom: 5%;
+      padding-left: 3%;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    #HomepageRow h1 {
+      font-size: 100px;
+      color: #c22822;
+      
+
+    }
+
+    #HomepageRow h2 {
+      color: white;
+
+    }
+
+    .link {
+      color: black;
+    }
+
+
+    #HomepageSvg {
+      margin-left: -5%;
+      margin-right: -12px;
+      overflow: hidden;
+      background-color: rgb(233, 229, 222);
+      ;
+
+    }
+
+    .HomepageArticlesRow {
+      padding: 3% 5% 3% 5%;
+      background-color: rgb(233, 229, 222);
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .HomepageArticleTitleDiv {
+      display: flex;
+      align-items: baseline;
+      gap: 15px;
+    }
+
+    .ToArticleLink{
+      text-decoration: none;
+      color: #bc2f2f;
+      font-size: 18px;
+      
+    }
+
+    
+
+
+
+
+
+    .HomepageArticlesRow:nth-of-type(odd) {
+      flex-direction: row-reverse;
+      background-color: #222;
+    }
+
+    .HomepageArticlesRow:nth-of-type(odd) h4 {
+      color: white;
+    }
+
+    .HomepageArticlesRow:nth-of-type(odd) p,
+    .HomepageArticlesRow:nth-of-type(odd) h2 {
+      color: #EEE;
+    }
+
+    .HomepageArticleImageCol {
+      display: flex;
+      justify-content: center;
+    }
+
+
+
+    #HomepageAuthors {
+      text-shadow: #bc2f2f;
+    }
+
+
+    .sticky-md a {
+      margin: 5%;
+      color: inherit;
+    }
+
+    .Toast a{
+      color: black ;
+    }
+
+    #article-title-row {
+      background-color: #292929;
+      overflow: hidden;
+    }
+
+    .article-title-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100vh;
+      position: relative;
+
+    }
+
+    .article-title-image{
+      height: 100vh;
+      object-fit: cover;
+      object-position: left bottom; 
+    }
+
+    .article-title-col h1 {
+      color: white;
+      margin-left: 3%;
+    }
+
+    @media screen and (max-width: 768px) {
+      .article-title-col {
+        height: 50vh;
+      }
+
+
+    }
+
+    .article-title-col p {
+      color: white;
+      margin-left: 10%;
+      margin-right: 10%;
+      text-align: center;
+    }
+
+    .article-title-col img {
+      flex-shrink: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+
+
+    }
+
+
+    .article-content {
+      padding: 5%;
+      text-align: justify;
+    }
+
+    
+
+    .inline-article-image{
+      width: 100%;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+
+    .sticky-md {
+      position: sticky;
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-evenly;
+      gap: 0px;
+      padding-top: 10px;
+      padding-left: 10px;
+      height: 100vh;
+      overflow: auto;
+    }
+
+
+    .timeline-container {
+
+      background-color: black;
+      min-height: 100vh;
+      
+    }
+
+    .timeline-title {
+      height: 100vh;
+      background-image: url("./Images/trump2.jpg");
+      background-size: cover;
+      background-position: bottom;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: flex-end;
+      padding-bottom: 5%;
+      padding-left: 3%;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+
+    .timeline-title h1 {
+      font-size: 70px;
+      color: rgb(241, 235, 235);
+      
+    }
+
+    .timeline-title p {
+      font-size: 30px;
+      color: #cecece;
+    }
+
+    .timeline-triangle {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 0 30vh 58vw;
+      border-color: transparent transparent #fefcf9 transparent;
+      z-index: 1;
+    }
+
+    .vl {
+      border-left: 10px solid #9B1F1C;
+      height: 100%;
+      position: absolute;
+      left: 50%;
+      margin-left: -3px;
+      top: 0;
+    }
+
+    .circle {
+      position: absolute;
+      margin-top: 30px;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      margin-left: 2px;
+      width: 40px;
+      height: 40px;
+      z-index: 1000;
+
+      border-radius: 50%;
+      background-color: #1E0B8B;
+    }
+
+    .timeline-row {
+      position: relative;
+      display: flex;
+      padding-bottom: 15%;
+      background-color: #fefcf9;
+
+    }
+
+    .timeline-col {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 5px 5px 15px;
+
+    }
+
+
+
+
+
+    .timeline-content {
+      position: relative;
+      width: 62%;
+    }
+
+    .timeline-image-content::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 2.3%;
+      height: 100%;
+      background: linear-gradient(to bottom, #FEFCF9 0%, #FEFCF9 10%, #9B1F1C 10%, #9B1F1C 100%);
+      z-index: 1;
+    }
+
+    .timeline-image-content::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3%;
+      background: linear-gradient(to left, #FEFCF9 0%, #FEFCF9 10%, #9B1F1C 10%, #9B1F1C 100%);
+      z-index: 1;
+    }
+
+    .timeline-content img {
+      width: 100%;
+      max-height: 400px;
+
+    }
+
+
+
+
+    .timeline-content p {
+      font-size: 19px;
+    }
+
+
+    @media screen and (max-width: 768px) {
+
+      
+
+      .timeline-image-content::after{
+        width: 80%;
+      }
+
+      .timeline-triangle {
+        z-index: -1;
+      }
+
+
+      .vl {
+        position: absolute;
+        left: 80%;
+        top: 0;
+      }
+
+      .circle {
+        position: absolute;
+        margin-top: 30px;
+        left: 80%;
+        margin-left: 1px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #1E0B8B;
+      }
+
+      .timeline-col p {
+        max-width: 75%;
+      }
+
+      .timeline-col img {
+        max-width: 80%;
+      }
+
+      .timeline-row:nth-of-type(odd) {
+        flex-direction: column-reverse;
+      }
+
+      .comment-section{
+        padding-top: 15%;
+      }
+
+      .article-content{
+        text-align: left;
+        padding: 0px;
+      }
+
+      .sticky-md{
+        height: auto;
+
+      }
+
+      .comment-content{
+        border-radius: 5px;
+      }
+
+
+      
+    }
+
+    .comment-section{
+      padding-top: 5%;
+      padding-left: 5%;
+      width: 100%;
+    }
+
+    .comments{
+      display: flex;
+      flex-direction: column;
+      max-height: 90vh;
+      overflow: scroll;
+    }
+
+    .single-comment{
+      float: left;
+      display: flex;
+      padding: 10px 10px 10px 0px;
+      align-items: center;
+      width: 85%;
+      
+      
+    }
+
+    .comment-circle{
+      background-color: #150A8D;
+      width: 20px;
+      height: 5px;
+      z-index: 100;
+      flex-shrink: 0;
+      margin-right: 5px;
+    }
+    .comment-content{
+      background-color: #dadade;
+      border-radius: 5px;
+      padding: 5px 5px 5px 20px;
+      width: 90%;
+      
+    }
+
+    .comment-info{
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .comment-text{
+      width: 70%;
+      height: 40px;
+      border: 3px solid;
+      margin-right: 5px;
+    
+    }
+    .comment-button{
+      
+      background-color: black;
+      border: none;
+      color: white;
+      height: 40px;
+      width: 80px;        
+    }
+
+    .footer{
+      background-color: black;
+      width: 100%;
+      
+      
+    }
+
+    .footer-row{
+      border-bottom: bisque solid;
+      padding-bottom: 5px;
+    }
+
+    .footer-title{
+      color: white;
+      padding-left: 10px;
+      padding-top: 10px;
+    }
+
+    .text{
+      margin-top: 13px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-size:medium;
+    }
+
+    .text a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .text a:hover {
+      color: red;
+    }
+
+    .last-text{
+      text-align: center;
+      padding-top: 10px;
+      color: rgb(196, 196, 196);
+    }
+
+
