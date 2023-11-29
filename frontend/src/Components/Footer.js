@@ -1,6 +1,5 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
 function Footer () {
     return (
@@ -12,16 +11,16 @@ function Footer () {
                 <Col>
                 <Row>
                     <Col>
-                        <p className="text"><Link to="/">Home</Link></p>
+                        <p className="text"><a href="/">Home</a></p>
                     </Col>
                     <Col>
-                        <p className="text" ><Link to="/timeline">Timeline</Link></p>
+                        <p className="text" ><a href="/timeline">Timeline</a></p>
                     </Col>
                 </Row>
                 </Col>
             </Row>
             <Row className="last-row">
-                <p className="last-text">donaldtrump.com © 2023</p>
+                <p className="last-text">KBW Winterthur 2023</p>
             </Row>
         </div>
     )

@@ -24,6 +24,7 @@ function Timeline() {
                 <div>
                     <h1>The Timeline</h1>
                     <p>Trump through the years</p>
+                    <p style={{fontSize: "10px"}}>Source: townandcountrymag.com</p>
                     <div className="timeline-triangle"></div>
                 </div>
             </Row>

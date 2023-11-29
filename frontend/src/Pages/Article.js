@@ -26,6 +26,10 @@ function Article() {
 
     }, []);
 
+    useEffect(() => {
+        getArticles();
+      }, [article.id]);
+
 
 
 
@@ -65,7 +69,9 @@ function Article() {
     async function getArticles() {
         try {
             const response = await axios.get(`${backendURL}/api/articles`);
-            getRandomArticles(response.data, 2, article.id);
+            const randomArticlesResult = await getRandomArticles(response.data, article.id);
+            setRandomArticles(randomArticlesResult);
+
         } catch (error) {
             if (error.response) {
                 console.log("errr from server :(");
@@ -78,27 +84,21 @@ function Article() {
         };
     };
 
-    function getRandomArticles(articles, count, id) {
-        const availableArticles = articles.filter((article) => article.id !== id);
-        const articleCount = availableArticles.length;
-        const randomArticles = [];
+    function getRandomArticles(articles, currentArticleId) {
+        const otherArticles = articles.filter((article) => article.id !== currentArticleId);
+        const randomIndex1 = Math.floor(Math.random() * otherArticles.length);
+        let randomArticle1 = otherArticles[randomIndex1];
 
-        if (count >= articleCount) {
-            setRandomArticles(availableArticles);
-            return;
-        }
-
-        while (randomArticles.length < count) {
-            const randomIndex = Math.floor(Math.random() * articleCount);
-            const randomArticle = availableArticles[randomIndex];
-
-            if (!randomArticles.includes(randomArticle)) {
-                randomArticles.push(randomArticle);
-            }
-        }
-
-        setRandomArticles(randomArticles);
-    }
+        otherArticles.splice(randomIndex1, 1);
+      
+        const randomIndex2 = Math.floor(Math.random() * otherArticles.length);
+        let randomArticle2 = otherArticles[randomIndex2];
+      
+        return [randomArticle1, randomArticle2];
+      }
+      
+      
+      
 
 
     async function getComments() {
@@ -162,8 +162,6 @@ function Article() {
         );
     };
 
-const artText = "The former president of the United States, Donald John Trump, \n has been impeached twice but was also acquitted for the  second time last January. In US-law, the process of impeachment occurs when the House of Representatives, comprised of members from every state, decides to charge the current president or vice president for alleged misconduct. Since Trump had already left office, this was also the first time an impeachment trial has been held against a former president. Donald Trump is, until now, the only US president to be impeached twice. The other presidents were Andrew Johnson in 1868 and Bill Clinton in 1998. This time around, Trump has been charged with incitement of insurrection. The reason for the impeachment was, on the one hand, the Capitol attack on January 6, about a month beforehand. Thousands of supporters of the former president felt an urge to rebel against the results of the presidential election, which Trump lost. They also were shouting “hang Mike Pence”, since he was overseeing Biden’s election process. A total of five people died during the events, and over 130 were injured. This was the first time the Capitol had ever been breached by rioters. The other reason for his impeachment was a phone call he had had with Secretary of State Brad Raffensperger (oversees elections in the state of Georgia). During this phone call, he pressured Raffensperger to investigate Georgia’s election results, even after being told multiple times that the results had been correct. Ultimately however, Trump was acquitted in a 57-43 vote, 10 short of the needed two-thirds to have him convicted. Today Trump is currently running for president again, which would not have been possible had he been convicted. "
-
 
 
     function formatLastUpdatedAt(inputDate) {
@@ -173,10 +171,9 @@ const artText = "The former president of the United States, Donald John Trump, \
     };
     function renderParagraph(text) {
         return text.split("\n").map((paragraph, index) => (
-          <p key={index}>{paragraph}</p>
+            <p key={index}>{paragraph}</p>
         ));
-      }
-    
+    }
 
 
 
@@ -191,7 +188,7 @@ const artText = "The former president of the United States, Donald John Trump, \
                     <h1>{article.title}</h1>
                 </Col>
                 <Col className="col-12 col-md-6 article-title-col" >
-                    <img src={article.image_url} alt="Cat" />
+                    <img src={article.image_url} alt="Cat" className="article-title-image" />
                 </Col>
 
             </Row>
@@ -200,18 +197,18 @@ const artText = "The former president of the United States, Donald John Trump, \
                     <div className="article-content">
                         <h4>written by {users.find(user => user.id === article.fk_user_id)?.username}</h4>
                         <hr style={{ width: "100%" }} />
-                        <h4>{article.text && renderParagraph(article.text)}</h4>    
+                        <h4>{article.text && renderParagraph(article.text)}</h4>
 
                         <img src={article.image_url} alt="" className="inline-article-image"></img>
                         <h4>
-                                  
+
                         </h4>
                     </div>
                     <div className="comment-section">
-                        <div style={{marginBottom: "10px"}}>
-                        <hr style={{ width: "100%" }} />
-                        <input type="text" value={writingComment} onChange={(e) => setWritingComment(e.target.value)} className="comment-text" placeholder="write comment"></input>
-                        <input type="button" value="Post" className="comment-button" onClick={postComment}></input>
+                        <div style={{ marginBottom: "10px" }}>
+                            <hr style={{ width: "100%" }} />
+                            <input type="text" value={writingComment} onChange={(e) => setWritingComment(e.target.value)} className="comment-text" placeholder="write comment"></input>
+                            <input type="button" value="Post" className="comment-button" onClick={postComment}></input>
                         </div>
                         <div className="comments">
                             {comments.map((comment) => (
@@ -248,7 +245,7 @@ const artText = "The former president of the United States, Donald John Trump, \
                         </div>
                     </div>
                 </Col>
-                <Footer/>
+                <Footer />
             </Row>
 
         </Container>

@@ -43,7 +43,7 @@ function Home() {
 
           <h1>Trump</h1>
 
-          <h2 >Luc Zwyssig Peter Schreivogel Tarek Schütz Sujan Saravana</h2>
+          <h2 >Luc Zwyssig, Peter Schreivogel, Tarek Schütz, Sujan Saravana</h2>
         </div>
       </Row>
 
